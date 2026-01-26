@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNIVERSE BUILDERS & BUILDING MAINTENANCE - Rajapalayam</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Hind+Madurai:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0f172a;
+            --accent: #fbbf24;
+            --accent-hover: #f59e0b;
+            --text-main: #1e293b;
+            --text-light: #64748b;
+            --white: #ffffff;
+            --bg-soft: #f8fafc;
+            --glass: rgba(255, 255, 255, 0.8);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Outfit', 'Hind Madurai', sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: var(--bg-soft);
+        }
+
+        /* Navigation */
+        header {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            padding: 1rem 5%;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            line-height: 1.2;
+        }
+
+        .logo span {
+            color: var(--accent-hover);
+            display: block;
+            font-size: 0.8rem;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        nav a:hover {
+            color: var(--accent-hover);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)), 
+                        url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            padding: 0 5%;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            line-height: 1.1;
+        }
+
+        .hero p {
+            font-size: clamp(1.1rem, 2vw, 1.5rem);
+            margin-bottom: 2.5rem;
+            color: #cbd5e1;
+            font-family: 'Hind Madurai', sans-serif;
+        }
+
+        .hero-ofer-badge {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--primary);
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            font-size: 1.2rem;
+            box-shadow: 0 10px 15px -3px rgba(251, 191, 36, 0.3);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: var(--accent);
+            color: var(--primary);
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            border: 2px solid var(--accent);
+        }
+
+        .btn:hover {
+            background: transparent;
+            color: var(--accent);
+        }
+
+        /* Services */
+        .services {
+            padding: 6rem 5%;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            text-align: center;
+            border: 1px solid #f1f5f9;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            border-color: var(--accent);
+        }
+
+        .service-card .icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-family: 'Hind Madurai', sans-serif;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: var(--primary);
+            color: var(--white);
+            padding: 6rem 5%;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .contact-info h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: var(--accent);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-item .icon {
+            background: rgba(251, 191, 36, 0.1);
+            color: var(--accent);
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+        }
+
+        .contact-item div h4 {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .contact-item div p {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        /* Footer */
+        footer {
+            background: #020617;
+            padding: 2rem 5%;
+            text-align: center;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+            .hero {
+                height: 70vh;
+            }
+            .contact-grid {
+                gap: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                UNIVERSE BUILDERS
+                <span>& BUILDING MAINTENANCE</span>
+            </div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-ofer-badge">1 ச.அடி – Rs. 1800/- முதல்*</div>
+            <h1>உங்கள் கனவு இல்லம் நனவாக</h1>
+            <p>Anything everywhere. Expertise in Civil Engineering & Premium Building Maintenance.</p>
+            <a href="#contact" class="btn">Get Started</a>
+        </div>
+    </section>
+
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>எங்கள் சேவைகள்</h2>
+                <p>உரிய நேரத்தில் & உயர்தரத்தில் செய்து தரப்படும்</p>
+            </div>
+            <div class="service-grid">
+                <div class="service-card">
+                    <span class="icon">💰</span>
+                    <h3>லோன் ஏற்பாடு செய்து தரப்படும்</h3>
+                    <p>உங்களின் கட்டுமானத் தேவைகளுக்கான லோன் வசதிகளை நாங்கள் எளிதாக்கி தருகிறோம்.</p>
+                </div>
+                <div class="service-card">
+                    <span class="icon">🛡️</span>
+                    <h3>1 வருட பராமரிப்பு முற்றிலும் இலவசம்</h3>
+                    <p>கட்டுமானம் முடிந்த பின் ஒரு வருடத்திற்கு எங்களது பராமரிப்பு சேவை முற்றிலும் இலவசம்.</p>
+                </div>
+                <div class="service-card">
+                    <span class="icon">🔧</span>
+                    <h3>அனைத்து வகையான பராமரிப்பு வேலைகளும்</h3>
+                    <p>அனைத்து விதமான கட்டிட பராமரிப்பு மற்றும் பழுதுபார்க்கும் பணிகள் தரமான முறையில் செய்து தரப்படும்.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h2>தொடர்புக்கு</h2>
+                    <p style="margin-bottom: 3rem; color: #cbd5e1;">நாங்கள் உங்கள் கனவுகளை நனவாக்க தயாராக இருக்கிறோம்.</p>
+                    
+                    <div class="contact-item">
+                        <div class="icon">📞</div>
+                        <div>
+                            <h4>தொலைபேசி</h4>
+                            <p>+91 96880 12707</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="icon">📍</div>
+                        <div>
+                            <h4>முகவரி</h4>
+                            <p>228/1, P.A.C.R. Salai,<br>
+                            P.A.C.R. Kalyana Mandapam Opp,<br>
+                            Rajapalayam</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-image" style="background: rgba(255,255,255,0.05); border-radius: 24px; height: 100%; min-height: 300px; display: flex; align-items: center; justify-content: center; font-size: 5rem;">
+                    🏗️
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 UNIVERSE BUILDERS & BUILDING MAINTENANCE. All rights reserved.</p>
+    </footer>
+</body>
+</html>

@@ -1,383 +1,527 @@
 <!DOCTYPE html>
 <html lang="ta">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UNIVERSE BUILDERS & BUILDING MAINTENANCE - Rajapalayam</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Hind+Madurai:wght@400;700&display=swap" rel="stylesheet">
+    <title>UNIVERSE BUILDERS - Start Your Journey</title>
     <style>
-        :root {
-            --primary: #0f172a;
-            --accent: #fbbf24;
-            --accent-hover: #f59e0b;
-            --text-main: #1e293b;
-            --text-light: #64748b;
-            --white: #ffffff;
-            --bg-soft: #f8fafc;
-            --glass: rgba(255, 255, 255, 0.8);
-        }
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
-
         body {
-            font-family: 'Outfit', 'Hind Madurai', sans-serif;
-            line-height: 1.6;
-            color: var(--text-main);
-            background-color: var(--bg-soft);
-        }
-
-        /* Navigation */
-        header {
-            background: var(--glass);
-            backdrop-filter: blur(10px);
-            padding: 1rem 5%;
-            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .logo {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: var(--primary);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            line-height: 1.2;
-        }
-
-        .logo span {
-            color: var(--accent-hover);
-            display: block;
-            font-size: 0.8rem;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: var(--text-main);
-            font-weight: 600;
-            transition: all 0.3s ease;
-            font-size: 0.95rem;
-        }
-
-        nav a:hover {
-            color: var(--accent-hover);
-        }
-
-        /* Hero Section */
-        .hero {
-            position: relative;
-            background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)), 
-                        url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&q=80');
-            background-size: cover;
-            background-position: center;
-            height: 90vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: var(--white);
-            padding: 0 5%;
-        }
-
-        .hero-content {
-            max-width: 900px;
-            animation: fadeInUp 1s ease-out;
-        }
-
-        .hero h1 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            margin-bottom: 1.5rem;
-            font-weight: 700;
-            line-height: 1.1;
-        }
-
-        .hero p {
-            font-size: clamp(1.1rem, 2vw, 1.5rem);
-            margin-bottom: 2.5rem;
-            color: #cbd5e1;
-            font-family: 'Hind Madurai', sans-serif;
-        }
-
-        .hero-ofer-badge {
-            display: inline-block;
-            background: var(--accent);
-            color: var(--primary);
-            padding: 0.75rem 1.5rem;
-            border-radius: 9999px;
-            font-weight: 700;
-            margin-bottom: 2rem;
-            font-size: 1.2rem;
-            box-shadow: 0 10px 15px -3px rgba(251, 191, 36, 0.3);
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 1rem 2.5rem;
-            background: var(--accent);
-            color: var(--primary);
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: 700;
-            transition: all 0.3s ease;
-            border: 2px solid var(--accent);
-        }
-
-        .btn:hover {
-            background: transparent;
-            color: var(--accent);
-        }
-
-        /* Services */
-        .services {
-            padding: 6rem 5%;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-x: hidden;
+            background: #0a0a0a;
+            cursor: default;
         }
 
         .container {
-            max-width: 1200px;
-            margin: 0 auto;
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
         }
 
-        .section-header {
-            text-align: center;
-            margin-bottom: 4rem;
+        /* Animated Background Particles */
+        .particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
         }
 
-        .section-header h2 {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
+        .particle {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: float 20s infinite;
         }
 
-        .service-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2.5rem;
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0) translateX(0);
+            }
+
+            50% {
+                transform: translateY(-100px) translateX(50px);
+            }
         }
 
-        .service-card {
-            background: var(--white);
-            padding: 3rem 2rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
-            text-align: center;
-            border: 1px solid #f1f5f9;
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-            border-color: var(--accent);
-        }
-
-        .service-card .icon {
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
-            display: block;
-        }
-
-        .service-card h3 {
-            font-size: 1.5rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
-            font-family: 'Hind Madurai', sans-serif;
-        }
-
-        /* Contact Section */
-        .contact {
-            background: var(--primary);
-            color: var(--white);
-            padding: 6rem 5%;
-        }
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 4rem;
-            align-items: start;
-        }
-
-        .contact-info h2 {
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-            color: var(--accent);
-        }
-
-        .contact-item {
+        /* Split World Container */
+        .split-world {
+            position: relative;
+            width: 100%;
+            height: 100%;
             display: flex;
-            align-items: center;
-            gap: 1.5rem;
-            margin-bottom: 2rem;
+            z-index: 2;
         }
 
-        .contact-item .icon {
-            background: rgba(251, 191, 36, 0.1);
-            color: var(--accent);
-            width: 50px;
-            height: 50px;
-            border-radius: 12px;
+        /* Engineering Side */
+        .world-half {
+            flex: 1;
+            position: relative;
+            overflow: hidden;
+            transition: flex 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+        }
+
+        .engineering {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .insurance {
+            background: linear-gradient(135deg, #020617 0%, #0f172a 50%, #1e293b 100%);
+        }
+
+        /* Hover Effects */
+        .world-half:hover {
+            flex: 1.3;
+        }
+
+        .world-half:not(:hover) {
+            flex: 0.7;
+        }
+
+        /* Grid Pattern Overlay */
+        .grid-overlay {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.6s ease;
+            pointer-events: none;
+        }
+
+        .engineering:hover .grid-overlay {
+            opacity: 0.3;
+        }
+
+        .engineering .grid-overlay {
+            background-image:
+                linear-gradient(rgba(251, 191, 36, 0.3) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(251, 191, 36, 0.3) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+
+        /* Shield Pattern for Insurance */
+        .shield-overlay {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.6s ease;
+            pointer-events: none;
+        }
+
+        .insurance:hover .shield-overlay {
+            opacity: 1;
+        }
+
+        /* Content Container */
+        .world-content {
+            position: relative;
+            height: 100%;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
-            font-size: 1.25rem;
+            padding: 40px;
+            z-index: 3;
+            transition: all 0.6s ease;
         }
 
-        .contact-item div h4 {
-            font-size: 0.9rem;
-            color: var(--text-light);
+        /* Icon Container */
+        .icon-container {
+            width: 180px;
+            height: 180px;
+            margin-bottom: 40px;
+            position: relative;
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .world-half:hover .icon-container {
+            transform: scale(1.15);
+        }
+
+        .icon-svg {
+            width: 100%;
+            height: 100%;
+            filter: drop-shadow(0 10px 40px rgba(251, 191, 36, 0.3));
+            transition: all 0.6s ease;
+        }
+
+        .insurance .icon-svg {
+            filter: drop-shadow(0 10px 40px rgba(251, 191, 36, 0.5));
+        }
+
+        /* Rotating Ring Effect */
+        .rotating-ring {
+            position: absolute;
+            width: 220px;
+            height: 220px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border: 2px solid rgba(251, 191, 36, 0.3);
+            border-radius: 50%;
+            opacity: 0;
+            transition: all 0.6s ease;
+        }
+
+        .world-half:hover .rotating-ring {
+            opacity: 1;
+            animation: rotate 10s linear infinite;
+        }
+
+        @keyframes rotate {
+            from {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+
+            to {
+                transform: translate(-50%, -50%) rotate(360deg);
+            }
+        }
+
+        /* Typography */
+        .world-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
             text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .contact-item div p {
-            font-size: 1.1rem;
-            font-weight: 500;
-        }
-
-        /* Footer */
-        footer {
-            background: #020617;
-            padding: 2rem 5%;
+            opacity: 0.9;
+            transition: all 0.6s ease;
             text-align: center;
-            color: var(--text-light);
-            font-size: 0.9rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
         }
 
-        /* Animations */
-        @keyframes fadeInUp {
+        .world-half:hover .world-title {
+            opacity: 1;
+            transform: translateY(-10px);
+            text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            color: #fbbf24;
+        }
+
+        .world-subtitle {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 30px;
+            font-weight: 300;
+            letter-spacing: 1px;
+            text-align: center;
+            transition: all 0.6s ease;
+        }
+
+        .world-half:hover .world-subtitle {
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        /* Features List */
+        .features {
+            list-style: none;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease 0.2s;
+        }
+
+        .world-half:hover .features {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .feature-item {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.1rem;
+            padding: 10px 0;
+            text-align: center;
+            font-weight: 400;
+        }
+
+        .feature-item:before {
+            content: "●";
+            margin-right: 10px;
+            color: #fbbf24;
+        }
+
+        /* CTA Button */
+        .cta-button {
+            margin-top: 40px;
+            padding: 18px 50px;
+            background: #fbbf24;
+            border: 2px solid #fbbf24;
+            color: #020617;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            backdrop-filter: blur(10px);
+            opacity: 0;
+            transform: translateY(20px);
+            border-radius: 8px;
+        }
+
+        .world-half:hover .cta-button {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.3s;
+        }
+
+        .cta-button:hover {
+            background: transparent;
+            color: #fbbf24;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(251, 191, 36, 0.4);
+        }
+
+        /* Top Tagline */
+        .tagline {
+            position: absolute;
+            top: 60px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            text-align: center;
+            width: 100%;
+        }
+
+        .tagline h1 {
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            color: #ffffff;
+            font-weight: 300;
+            letter-spacing: 4px;
+            text-shadow: 0 5px 30px rgba(0, 0, 0, 0.8);
+        }
+
+        .tagline .highlight {
+            font-weight: 700;
+            color: #fbbf24;
+        }
+
+        /* Divider Line */
+        .divider {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(to bottom,
+                    transparent,
+                    rgba(251, 191, 36, 0.5) 50%,
+                    transparent);
+            z-index: 10;
+            pointer-events: none;
+        }
+
+        /* Transitions */
+        .transition-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #020617;
+            z-index: 1000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .transition-screen.active {
+            display: flex;
+            animation: fadeIn 0.5s ease forwards;
+        }
+
+        @keyframes fadeIn {
             from {
                 opacity: 0;
-                transform: translateY(30px);
             }
+
             to {
                 opacity: 1;
-                transform: translateY(0);
             }
         }
 
-        @media (max-width: 768px) {
-            nav ul {
+        .transition-text {
+            font-size: 2rem;
+            color: #ffffff;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .loader {
+            width: 60px;
+            height: 60px;
+            border: 4px solid rgba(251, 191, 36, 0.2);
+            border-top: 4px solid #fbbf24;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @media (max-width: 968px) {
+            .split-world {
+                flex-direction: column;
+            }
+
+            .divider {
                 display: none;
             }
-            .hero {
-                height: 70vh;
+
+            .world-title {
+                font-size: 2.2rem;
             }
-            .contact-grid {
-                gap: 2rem;
+
+            .cta-button {
+                padding: 14px 30px;
+                font-size: 0.9rem;
+            }
+
+            .tagline {
+                top: 30px;
             }
         }
     </style>
 </head>
+
 <body>
-    <header>
-        <nav>
-            <div class="logo">
-                UNIVERSE BUILDERS
-                <span>& BUILDING MAINTENANCE</span>
-            </div>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+    <div class="container">
+        <div class="particles" id="particles"></div>
 
-    <section class="hero" id="home">
-        <div class="hero-content">
-            <div class="hero-ofer-badge">1 ச.அடி – Rs. 1800/- முதல்*</div>
-            <h1>உங்கள் கனவு இல்லம் நனவாக</h1>
-            <p>Anything everywhere. Expertise in Civil Engineering & Premium Building Maintenance.</p>
-            <a href="#contact" class="btn">Get Started</a>
+        <div class="tagline">
+            <h1 id="tagline-text">Building Tomorrow. <span class="highlight">Protecting Forever.</span></h1>
         </div>
-    </section>
 
-    <section class="services" id="services">
-        <div class="container">
-            <div class="section-header">
-                <h2>எங்கள் சேவைகள்</h2>
-                <p>உரிய நேரத்தில் & உயர்தரத்தில் செய்து தரப்படும்</p>
-            </div>
-            <div class="service-grid">
-                <div class="service-card">
-                    <span class="icon">💰</span>
-                    <h3>லோன் ஏற்பாடு செய்து தரப்படும்</h3>
-                    <p>உங்களின் கட்டுமானத் தேவைகளுக்கான லோன் வசதிகளை நாங்கள் எளிதாக்கி தருகிறோம்.</p>
-                </div>
-                <div class="service-card">
-                    <span class="icon">🛡️</span>
-                    <h3>1 வருட பராமரிப்பு முற்றிலும் இலவசம்</h3>
-                    <p>கட்டுமானம் முடிந்த பின் ஒரு வருடத்திற்கு எங்களது பராமரிப்பு சேவை முற்றிலும் இலவசம்.</p>
-                </div>
-                <div class="service-card">
-                    <span class="icon">🔧</span>
-                    <h3>அனைத்து வகையான பராமரிப்பு வேலைகளும்</h3>
-                    <p>அனைத்து விதமான கட்டிட பராமரிப்பு மற்றும் பழுதுபார்க்கும் பணிகள் தரமான முறையில் செய்து தரப்படும்.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+        <div class="divider"></div>
 
-    <section class="contact" id="contact">
-        <div class="container">
-            <div class="contact-grid">
-                <div class="contact-info">
-                    <h2>தொடர்புக்கு</h2>
-                    <p style="margin-bottom: 3rem; color: #cbd5e1;">நாங்கள் உங்கள் கனவுகளை நனவாக்க தயாராக இருக்கிறோம்.</p>
-                    
-                    <div class="contact-item">
-                        <div class="icon">📞</div>
-                        <div>
-                            <h4>தொலைபேசி</h4>
-                            <p>+91 96880 12707</p>
-                        </div>
+        <div class="split-world">
+            <div class="world-half engineering" onclick="navigateTo('builders.html')">
+                <div class="grid-overlay"></div>
+                <div class="world-content">
+                    <div class="icon-container">
+                        <div class="rotating-ring"></div>
+                        <svg class="icon-svg" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M100 20L180 60V140L100 180L20 140V60L100 20Z" stroke="#fbbf24" stroke-width="3"
+                                fill="rgba(251, 191, 36, 0.1)" />
+                            <path d="M100 20V180M20 60L180 140M180 60L20 140" stroke="#fbbf24" stroke-width="2"
+                                opacity="0.5" />
+                            <circle cx="100" cy="100" r="25" stroke="#fbbf24" stroke-width="3"
+                                fill="rgba(251, 191, 36, 0.2)" />
+                            <path d="M50 100H150M100 50V150" stroke="#fbbf24" stroke-width="2" />
+                        </svg>
                     </div>
-
-                    <div class="contact-item">
-                        <div class="icon">📍</div>
-                        <div>
-                            <h4>முகவரி</h4>
-                            <p>228/1, P.A.C.R. Salai,<br>
-                            P.A.C.R. Kalyana Mandapam Opp,<br>
-                            Rajapalayam</p>
-                        </div>
-                    </div>
+                    <h2 class="world-title">Engineering</h2>
+                    <p class="world-subtitle">Precision • Innovation • Quality</p>
+                    <ul class="features">
+                        <li class="feature-item">Structural Design</li>
+                        <li class="feature-item">Project Management</li>
+                        <li class="feature-item">Custom Construction</li>
+                    </ul>
+                    <button class="cta-button">Enter Engineering</button>
                 </div>
-                <div class="contact-image" style="background: rgba(255,255,255,0.05); border-radius: 24px; height: 100%; min-height: 300px; display: flex; align-items: center; justify-content: center; font-size: 5rem;">
-                    🏗️
+            </div>
+
+            <div class="world-half insurance" onclick="navigateTo('builders.html#services')">
+                <div class="shield-overlay">
+                    <svg width="100%" height="100%" style="position: absolute; opacity: 0.15;">
+                        <defs>
+                            <pattern id="shield-pattern" x="0" y="0" width="100" height="100"
+                                patternUnits="userSpaceOnUse">
+                                <path d="M50 10 L70 30 L65 55 L50 65 L35 55 L30 30 Z" fill="none" stroke="#fbbf24"
+                                    stroke-width="1" />
+                            </pattern>
+                        </defs>
+                        <rect width="100%" height="100%" fill="url(#shield-pattern)" />
+                    </svg>
+                </div>
+                <div class="world-content">
+                    <div class="icon-container">
+                        <div class="rotating-ring"></div>
+                        <svg class="icon-svg" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M100 20C100 20 160 40 160 80C160 120 130 160 100 180C70 160 40 120 40 80C40 40 100 20 100 20Z"
+                                stroke="#fbbf24" stroke-width="3" fill="rgba(251, 191, 36, 0.15)" />
+                            <path d="M75 95L90 110L125 75" stroke="#fbbf24" stroke-width="4" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </div>
+                    <h2 class="world-title">Protection</h2>
+                    <p class="world-subtitle">Security • Maintenance • Loans</p>
+                    <ul class="features">
+                        <li class="feature-item">1-Year Free Maintenance</li>
+                        <li class="feature-item">Easy Loan Assistance</li>
+                        <li class="feature-item">Building Safety Check</li>
+                    </ul>
+                    <button class="cta-button">Enter Protection</button>
                 </div>
             </div>
         </div>
-    </section>
 
-    <footer>
-        <p>&copy; 2026 UNIVERSE BUILDERS & BUILDING MAINTENANCE. All rights reserved.</p>
-    </footer>
+        <div class="transition-screen" id="transitionScreen">
+            <div class="transition-text">Connecting to UNIVERSE BUILDERS...</div>
+            <div class="loader"></div>
+        </div>
+    </div>
+
+    <script>
+        const particlesContainer = document.getElementById('particles');
+        for (let i = 0; i < 30; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.width = Math.random() * 4 + 2 + 'px';
+            particle.style.height = particle.style.width;
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.top = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 20 + 's';
+            particle.style.animationDuration = (Math.random() * 10 + 15) + 's';
+            particlesContainer.appendChild(particle);
+        }
+
+        function navigateTo(url) {
+            const transitionScreen = document.getElementById('transitionScreen');
+            transitionScreen.classList.add('active');
+            setTimeout(() => {
+                window.location.href = url;
+            }, 800);
+        }
+
+        document.querySelectorAll('.cta-button').forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const path = button.textContent.includes('Engineering') ? 'builders.html' : 'builders.html#services';
+                navigateTo(path);
+            });
+        });
+
+        // Tamil Toggle Hint (Optional)
+        const tagline = document.getElementById('tagline-text');
+        setInterval(() => {
+            if (tagline.textContent.includes('Building')) {
+                tagline.innerHTML = 'உங்கள் கனவு இல்லம் <span class="highlight">நனவாக.</span>';
+            } else {
+                tagline.innerHTML = 'Building Tomorrow. <span class="highlight">Protecting Forever.</span>';
+            }
+        }, 5000);
+    </script>
 </body>
+
 </html>
