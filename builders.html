@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="ta">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UNIVERSE BUILDERS & BUILDING MAINTENANCE - Rajapalayam</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Hind+Madurai:wght@400;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Hind+Madurai:wght@400;700&display=swap"
+        rel="stylesheet">
     <style>
         :root {
             --primary: #0f172a;
@@ -53,6 +56,7 @@
             align-items: center;
             max-width: 1200px;
             margin: 0 auto;
+            position: relative;
         }
 
         .logo {
@@ -62,12 +66,32 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             line-height: 1.2;
+            z-index: 1001;
         }
 
         .logo span {
             color: var(--accent-hover);
             display: block;
             font-size: 0.8rem;
+        }
+
+        /* Mobile Menu Button */
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            z-index: 1001;
+        }
+
+        .mobile-toggle span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background: var(--primary);
+            margin: 5px 0;
+            transition: 0.3s;
         }
 
         nav ul {
@@ -91,17 +115,17 @@
         /* Hero Section */
         .hero {
             position: relative;
-            background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)), 
-                        url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&q=80');
+            background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)),
+                url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&q=80');
             background-size: cover;
             background-position: center;
-            height: 90vh;
+            min-height: 80vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             color: var(--white);
-            padding: 0 5%;
+            padding: 4rem 5%;
         }
 
         .hero-content {
@@ -110,14 +134,14 @@
         }
 
         .hero h1 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-size: clamp(2rem, 5vw, 4rem);
             margin-bottom: 1.5rem;
             font-weight: 700;
             line-height: 1.1;
         }
 
         .hero p {
-            font-size: clamp(1.1rem, 2vw, 1.5rem);
+            font-size: clamp(1rem, 2vw, 1.5rem);
             margin-bottom: 2.5rem;
             color: #cbd5e1;
             font-family: 'Hind Madurai', sans-serif;
@@ -131,7 +155,7 @@
             border-radius: 9999px;
             font-weight: 700;
             margin-bottom: 2rem;
-            font-size: 1.2rem;
+            font-size: clamp(1rem, 1.5vw, 1.2rem);
             box-shadow: 0 10px 15px -3px rgba(251, 191, 36, 0.3);
         }
 
@@ -154,7 +178,7 @@
 
         /* Services */
         .services {
-            padding: 6rem 5%;
+            padding: clamp(4rem, 8vw, 6rem) 5%;
         }
 
         .container {
@@ -164,24 +188,24 @@
 
         .section-header {
             text-align: center;
-            margin-bottom: 4rem;
+            margin-bottom: clamp(2.5rem, 5vw, 4rem);
         }
 
         .section-header h2 {
-            font-size: 2.5rem;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
             color: var(--primary);
             margin-bottom: 1rem;
         }
 
         .service-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: clamp(1.5rem, 3vw, 2.5rem);
         }
 
         .service-card {
             background: var(--white);
-            padding: 3rem 2rem;
+            padding: clamp(2rem, 4vw, 3rem) 2rem;
             border-radius: 20px;
             box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
             transition: all 0.3s ease;
@@ -202,7 +226,7 @@
         }
 
         .service-card h3 {
-            font-size: 1.5rem;
+            font-size: clamp(1.2rem, 2vw, 1.5rem);
             color: var(--primary);
             margin-bottom: 1rem;
             font-family: 'Hind Madurai', sans-serif;
@@ -212,18 +236,18 @@
         .contact {
             background: var(--primary);
             color: var(--white);
-            padding: 6rem 5%;
+            padding: clamp(4rem, 8vw, 6rem) 5%;
         }
 
         .contact-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 4rem;
+            gap: 3rem;
             align-items: start;
         }
 
         .contact-info h2 {
-            font-size: 2.5rem;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
             margin-bottom: 2rem;
             color: var(--accent);
         }
@@ -231,15 +255,15 @@
         .contact-item {
             display: flex;
             align-items: center;
-            gap: 1.5rem;
+            gap: clamp(1rem, 2vw, 1.5rem);
             margin-bottom: 2rem;
         }
 
         .contact-item .icon {
             background: rgba(251, 191, 36, 0.1);
             color: var(--accent);
-            width: 50px;
-            height: 50px;
+            width: clamp(40px, 6vw, 50px);
+            height: clamp(40px, 6vw, 50px);
             border-radius: 12px;
             display: flex;
             align-items: center;
@@ -248,14 +272,14 @@
         }
 
         .contact-item div h4 {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: var(--text-light);
             text-transform: uppercase;
             letter-spacing: 1px;
         }
 
         .contact-item div p {
-            font-size: 1.1rem;
+            font-size: clamp(1rem, 1.5vw, 1.1rem);
             font-weight: 500;
         }
 
@@ -265,7 +289,7 @@
             padding: 2rem 5%;
             text-align: center;
             color: var(--text-light);
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             border-top: 1px solid rgba(255, 255, 255, 0.05);
         }
 
@@ -275,6 +299,7 @@
                 opacity: 0;
                 transform: translateY(30px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -282,18 +307,67 @@
         }
 
         @media (max-width: 768px) {
+            .mobile-toggle {
+                display: block;
+            }
+
             nav ul {
-                display: none;
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                height: 100vh;
+                background: var(--white);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                transition: 0.4s;
+                box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
+                z-index: 1000;
             }
+
+            nav ul.active {
+                right: 0;
+            }
+
+            nav ul li {
+                margin: 20px 0;
+            }
+
+            nav a {
+                color: var(--primary);
+                font-size: 1.5rem;
+            }
+
+            .mobile-toggle.active span:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+
+            .mobile-toggle.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .mobile-toggle.active span:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
+            }
+
             .hero {
-                height: 70vh;
+                min-height: 60vh;
+                padding: 6rem 5% 4rem;
             }
+
             .contact-grid {
                 gap: 2rem;
+            }
+
+            .contact-image {
+                min-height: 200px !important;
+                font-size: 3rem !important;
             }
         }
     </style>
 </head>
+
 <body>
     <header>
         <nav>
@@ -301,6 +375,11 @@
                 UNIVERSE BUILDERS
                 <span>& BUILDING MAINTENANCE</span>
             </div>
+            <button class="mobile-toggle" aria-label="Toggle Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
             <ul>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#services">Services</a></li>
@@ -338,7 +417,8 @@
                 <div class="service-card">
                     <span class="icon">🔧</span>
                     <h3>அனைத்து வகையான பராமரிப்பு வேலைகளும்</h3>
-                    <p>அனைத்து விதமான கட்டிட பராமரிப்பு மற்றும் பழுதுபார்க்கும் பணிகள் தரமான முறையில் செய்து தரப்படும்.</p>
+                    <p>அனைத்து விதமான கட்டிட பராமரிப்பு மற்றும் பழுதுபார்க்கும் பணிகள் தரமான முறையில் செய்து தரப்படும்.
+                    </p>
                 </div>
             </div>
         </div>
@@ -349,8 +429,9 @@
             <div class="contact-grid">
                 <div class="contact-info">
                     <h2>தொடர்புக்கு</h2>
-                    <p style="margin-bottom: 3rem; color: #cbd5e1;">நாங்கள் உங்கள் கனவுகளை நனவாக்க தயாராக இருக்கிறோம்.</p>
-                    
+                    <p style="margin-bottom: 3rem; color: #cbd5e1;">நாங்கள் உங்கள் கனவுகளை நனவாக்க தயாராக இருக்கிறோம்.
+                    </p>
+
                     <div class="contact-item">
                         <div class="icon">📞</div>
                         <div>
@@ -364,12 +445,13 @@
                         <div>
                             <h4>முகவரி</h4>
                             <p>228/1, P.A.C.R. Salai,<br>
-                            P.A.C.R. Kalyana Mandapam Opp,<br>
-                            Rajapalayam</p>
+                                P.A.C.R. Kalyana Mandapam Opp,<br>
+                                Rajapalayam</p>
                         </div>
                     </div>
                 </div>
-                <div class="contact-image" style="background: rgba(255,255,255,0.05); border-radius: 24px; height: 100%; min-height: 300px; display: flex; align-items: center; justify-content: center; font-size: 5rem;">
+                <div class="contact-image"
+                    style="background: rgba(255,255,255,0.05); border-radius: 24px; height: 100%; min-height: 300px; display: flex; align-items: center; justify-content: center; font-size: 5rem;">
                     🏗️
                 </div>
             </div>
@@ -379,5 +461,24 @@
     <footer>
         <p>&copy; 2026 UNIVERSE BUILDERS & BUILDING MAINTENANCE. All rights reserved.</p>
     </footer>
+
+    <script>
+        const mobileToggle = document.querySelector('.mobile-toggle');
+        const navUl = document.querySelector('nav ul');
+
+        mobileToggle.addEventListener('click', () => {
+            mobileToggle.classList.toggle('active');
+            navUl.classList.toggle('active');
+        });
+
+        // Close menu when a link is clicked
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileToggle.classList.remove('active');
+                navUl.classList.remove('active');
+            });
+        });
+    </script>
 </body>
+
 </html>

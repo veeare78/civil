@@ -139,15 +139,15 @@
 
         /* Icon Container */
         .icon-container {
-            width: 180px;
-            height: 180px;
-            margin-bottom: 40px;
+            width: clamp(120px, 15vw, 180px);
+            height: clamp(120px, 15vw, 180px);
+            margin-bottom: 20px;
             position: relative;
             transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .world-half:hover .icon-container {
-            transform: scale(1.15);
+            transform: scale(1.1);
         }
 
         .icon-svg {
@@ -164,8 +164,8 @@
         /* Rotating Ring Effect */
         .rotating-ring {
             position: absolute;
-            width: 220px;
-            height: 220px;
+            width: 120%;
+            height: 120%;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
@@ -192,10 +192,10 @@
 
         /* Typography */
         .world-title {
-            font-size: 3.5rem;
+            font-size: clamp(2rem, 5vw, 3.5rem);
             font-weight: 700;
             color: #ffffff;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
             letter-spacing: 2px;
             text-transform: uppercase;
             opacity: 0.9;
@@ -205,15 +205,15 @@
 
         .world-half:hover .world-title {
             opacity: 1;
-            transform: translateY(-10px);
+            transform: translateY(-5px);
             text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
             color: #fbbf24;
         }
 
         .world-subtitle {
-            font-size: 1.3rem;
+            font-size: clamp(0.9rem, 1.5vw, 1.3rem);
             color: rgba(255, 255, 255, 0.7);
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             font-weight: 300;
             letter-spacing: 1px;
             text-align: center;
@@ -230,17 +230,19 @@
             opacity: 0;
             transform: translateY(20px);
             transition: all 0.6s ease 0.2s;
+            display: none;
         }
 
         .world-half:hover .features {
             opacity: 1;
             transform: translateY(0);
+            display: block;
         }
 
         .feature-item {
             color: rgba(255, 255, 255, 0.8);
-            font-size: 1.1rem;
-            padding: 10px 0;
+            font-size: clamp(0.85rem, 1.2vw, 1.1rem);
+            padding: 5px 0;
             text-align: center;
             font-weight: 400;
         }
@@ -253,12 +255,12 @@
 
         /* CTA Button */
         .cta-button {
-            margin-top: 40px;
-            padding: 18px 50px;
+            margin-top: 25px;
+            padding: clamp(12px, 2vw, 18px) clamp(25px, 4vw, 50px);
             background: #fbbf24;
             border: 2px solid #fbbf24;
             color: #020617;
-            font-size: 1.1rem;
+            font-size: clamp(0.85rem, 1.2vw, 1.1rem);
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 2px;
@@ -286,19 +288,19 @@
         /* Top Tagline */
         .tagline {
             position: absolute;
-            top: 60px;
+            top: 40px;
             left: 50%;
             transform: translateX(-50%);
             z-index: 10;
             text-align: center;
-            width: 100%;
+            width: 90%;
         }
 
         .tagline h1 {
-            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            font-size: clamp(1.2rem, 4vw, 2.5rem);
             color: #ffffff;
             font-weight: 300;
-            letter-spacing: 4px;
+            letter-spacing: 2px;
             text-shadow: 0 5px 30px rgba(0, 0, 0, 0.8);
         }
 
@@ -353,15 +355,17 @@
         }
 
         .transition-text {
-            font-size: 2rem;
+            font-size: clamp(1.2rem, 5vw, 2rem);
             color: #ffffff;
             margin-bottom: 20px;
             font-weight: 700;
+            text-align: center;
+            padding: 0 20px;
         }
 
         .loader {
-            width: 60px;
-            height: 60px;
+            width: 50px;
+            height: 50px;
             border: 4px solid rgba(251, 191, 36, 0.2);
             border-top: 4px solid #fbbf24;
             border-radius: 50%;
@@ -384,20 +388,44 @@
             }
 
             .divider {
-                display: none;
+                left: 0;
+                top: 50%;
+                width: 100%;
+                height: 2px;
+                background: linear-gradient(to right, transparent, rgba(251, 191, 36, 0.5) 50%, transparent);
             }
 
-            .world-title {
-                font-size: 2.2rem;
+            .world-half:hover {
+                flex: 1;
             }
 
+            /* Disable flex grow on mobile to keep 50/50 */
+            .world-half:not(:hover) {
+                flex: 1;
+            }
+
+            .features {
+                display: none !important;
+            }
+
+            /* Simplify mobile by hiding features */
             .cta-button {
-                padding: 14px 30px;
-                font-size: 0.9rem;
+                opacity: 1;
+                transform: translateY(0);
+                margin-top: 15px;
+            }
+
+            /* Always show CTA on mobile */
+            .world-half .world-content {
+                padding: 20px;
+            }
+
+            .icon-container {
+                margin-bottom: 15px;
             }
 
             .tagline {
-                top: 30px;
+                top: 20px;
             }
         }
     </style>
