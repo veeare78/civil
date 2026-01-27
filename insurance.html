@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="ta">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UNIVERSE BUILDERS & BUILDING MAINTENANCE - Rajapalayam</title>
+    <title>UNIVERSE INSURANCE & INVESTMENTS</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -136,7 +136,7 @@
         .hero {
             position: relative;
             background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)),
-                url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&q=80');
+                url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80');
             background-size: cover;
             background-position: center;
             min-height: 80vh;
@@ -303,14 +303,52 @@
             font-weight: 500;
         }
 
-        /* Footer */
+        /* Footer Styles */
         footer {
-            background: #020617;
-            padding: 2rem 5%;
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            color: var(--primary);
+            padding: 1rem 5%;
             text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.5);
+            margin-top: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 -4px 6px -1px rgb(0 0 0 / 0.1);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 0;
+        }
+
+        .social-icon {
+            width: 45px;
+            height: 45px;
+            background: rgba(15, 23, 42, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .social-icon:hover {
+            background: var(--accent);
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .footer-text {
             color: var(--text-light);
-            font-size: 0.85rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 0.9rem;
+            font-weight: 500;
         }
 
         /* Animations */
@@ -627,90 +665,6 @@
                 grid-template-columns: 1fr;
             }
         }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: var(--primary);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            line-height: 1.2;
-            z-index: 1001;
-        }
-
-        .logo-images {
-            display: flex;
-            gap: 10px;
-        }
-
-        .logo-img {
-            height: 50px;
-            width: auto;
-            object-fit: contain;
-        }
-
-        .logo-text {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .logo span {
-            color: var(--accent-hover);
-            display: block;
-            font-size: 0.8rem;
-        }
-
-        /* Footer Styles */
-        /* Footer Styles */
-        footer {
-            background: var(--glass);
-            backdrop-filter: blur(10px);
-            color: var(--primary);
-            padding: 1rem 5%;
-            text-align: center;
-            border-top: 1px solid rgba(255, 255, 255, 0.5);
-            margin-top: 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 -4px 6px -1px rgb(0 0 0 / 0.1);
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-bottom: 0;
-        }
-
-        .social-icon {
-            width: 45px;
-            height: 45px;
-            background: rgba(15, 23, 42, 0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--primary);
-            text-decoration: none;
-            transition: all 0.3s ease;
-            font-size: 1rem;
-        }
-
-        .social-icon:hover {
-            background: var(--accent);
-            color: var(--primary);
-            transform: translateY(-3px);
-        }
-
-        .footer-text {
-            color: var(--text-light);
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
     </style>
 </head>
 
@@ -721,12 +675,13 @@
             <a href="index.html" style="text-decoration: none; display: flex; align-items: center; gap: 15px;">
                 <div class="logo">
                     <div class="logo-images">
+                        <!-- Reusing the same logos for now, but in reality they should probably be insurance logos if available -->
                         <img src="assets/header-logo-1.png" class="logo-img" alt="Logo">
                         <img src="assets/header-logo-2.png" class="logo-img" alt="Logo">
                     </div>
                     <div class="logo-text">
-                        UNIVERSE BUILDERS
-                        <span>& BUILDING MAINTENANCE</span>
+                        UNIVERSE INSURANCE
+                        <span>& INVESTMENT SERVICES</span>
                     </div>
                 </div>
             </a>
@@ -737,45 +692,51 @@
             </button>
             <ul>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="#services">Services</a></li>
+                <li><a href="#services">Plans</a></li>
                 <li><a href="#contact">Contact</a></li>
-                <li><button class="btn-enquire" onclick="openEnquiryModal()">Enquire Now</button></li>
+                <li><button class="btn-enquire" onclick="openEnquiryModal()">Get Quote</button></li>
             </ul>
         </nav>
     </header>
 
     <section class="hero" id="home">
         <div class="hero-content">
-            <div class="hero-ofer-badge">1 ச.அடி – Rs. 1800/- முதல்*</div>
-            <h1>உங்கள் கனவு இல்லம் நனவாக</h1>
-            <p>Anything everywhere. Expertise in Civil Engineering & Premium Building Maintenance.</p>
-            <a href="#contact" class="btn">Get Started</a>
+            <div class="hero-ofer-badge">Secure Your Family's Future</div>
+            <!-- Removed Life Insurance Corporation of India -->
+            <p>Trust. Transparency. Togetherness. Comprehensive Life Insurance and Investment Solutions.</p>
+            <a href="#contact" class="btn">View Plans</a>
         </div>
     </section>
 
     <section class="services" id="services">
         <div class="container">
             <div class="section-header">
-                <h2>எங்கள் சேவைகள்</h2>
-                <p>உரிய நேரத்தில் & உயர்தரத்தில் செய்து தரப்படும்</p>
+                <h2>Our Insurance Products</h2>
+                <p>Plans tailored to your life stage and financial goals</p>
             </div>
             <div class="service-grid">
                 <div class="service-card">
+                    <span class="icon">☂️</span>
+                    <h3>Endowment Plans</h3>
+                    <p>A combination of protection and savings. Get a lump sum amount at maturity or on earlier death.
+                    </p>
+                </div>
+                <div class="service-card">
                     <span class="icon">💰</span>
-                    <h3>லோன் ஏற்பாடு செய்து தரப்படும்</h3>
-                    <p>உங்களின் கட்டுமானத் தேவைகளுக்கான லோன் வசதிகளை நாங்கள் எளிதாக்கி தருகிறோம்.</p>
+                    <h3>Money Back Plans</h3>
+                    <p>Periodic payments of partial survival benefits during the term of the policy, plus maturity
+                        benefits.</p>
                 </div>
                 <div class="service-card">
                     <span class="icon">🛡️</span>
-                    <h3>1 வருட பராமரிப்பு முற்றிலும் இலவசம்</h3>
-                    <p>கட்டுமானம் முடிந்த பின் ஒரு வருடத்திற்கு எங்களது பராமரிப்பு சேவை முற்றிலும் இலவசம்.</p>
+                    <h3>Term Assurance</h3>
+                    <p>Pure protection plans offering high life cover at low premiums to secure your family's financial
+                        future.</p>
                 </div>
                 <div class="service-card">
-                    <span class="icon">🔧</span>
-                    <h3>அனைத்து வகையான பராமரிப்பு வேலைகளும்</h3>
-                    <p>அனைத்து விதமான கட்டிட பராமரிப்பு மற்றும் பழுதுபார்க்கும் பணிகள் தரமான முறையில் செய்து
-                        தரப்படும்.
-                    </p>
+                    <span class="icon">👴</span>
+                    <h3>Pension Plans</h3>
+                    <p>Plan for a comfortable retirement with our range of immediate and deferred annuity plans.</p>
                 </div>
             </div>
         </div>
@@ -785,15 +746,15 @@
         <div class="container">
             <div class="contact-grid">
                 <div class="contact-info">
-                    <h2>தொடர்புக்கு</h2>
-                    <p style="margin-bottom: 3rem; color: #cbd5e1;">நாங்கள் உங்கள் கனவுகளை நனவாக்க தயாராக
-                        இருக்கிறோம்.
+                    <h2>Get In Touch</h2>
+                    <p style="margin-bottom: 3rem; color: #cbd5e1;">Contact us for policy details, premium quotes, and
+                        expert advice.
                     </p>
 
                     <div class="contact-item">
                         <div class="icon">📞</div>
                         <div>
-                            <h4>தொலைபேசி</h4>
+                            <h4>Phone</h4>
                             <p>+91 96880 12707</p>
                         </div>
                     </div>
@@ -801,7 +762,7 @@
                     <div class="contact-item">
                         <div class="icon">📍</div>
                         <div>
-                            <h4>முகவரி</h4>
+                            <h4>Address</h4>
                             <p>228/1, P.A.C.R. Salai,<br>
                                 P.A.C.R. Kalyana Mandapam Opp,<br>
                                 Rajapalayam - 626117</p>
@@ -821,7 +782,7 @@
     </section>
 
     <footer>
-        <p class="footer-text">&copy; 2026 UNIVERSE BUILDERS. All rights reserved.</p>
+        <p class="footer-text">&copy; 2026 UNIVERSE INSURANCE. All rights reserved.</p>
         <div class="social-links">
             <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
             <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
@@ -838,8 +799,8 @@
             <button class="modal-close" onclick="closeEnquiryModal()">&times;</button>
             <div class="form-container">
                 <div class="form-header">
-                    <h1>🏗️ Start Your Project Journey</h1>
-                    <p>We'll help you build something extraordinary.</p>
+                    <h1>📋 Get a Free Quote</h1>
+                    <p>We'll help you find the best plan for your needs.</p>
                     <div class="progress-container">
                         <div class="progress-bar" id="progressBar"></div>
                     </div>
@@ -849,11 +810,11 @@
                     <form id="projectForm">
                         <input type="hidden" name="_captcha" value="false">
                         <input type="hidden" name="_template" value="table">
-                        <input type="hidden" name="_subject" value="New Project Inquiry - Universe Builders">
+                        <input type="hidden" name="_subject" value="New Insurance Inquiry - Universe Insurance">
 
                         <!-- Step 1: Basic Contact Information -->
                         <div class="form-step active" data-step="1">
-                            <h3>Let's Get Started</h3>
+                            <h3>Personal Details</h3>
                             <div class="form-group">
                                 <label>Full Name *</label>
                                 <input type="text" name="fullName" required placeholder="John Smith">
@@ -869,107 +830,54 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label>Service Category *</label>
+                                <label>Plan Type *</label>
                                 <div class="radio-group">
                                     <label class="radio-option">
-                                        <input type="radio" name="serviceCategory" value="new-construction" required>
-                                        <span>🏗️ New Construction</span>
+                                        <input type="radio" name="planType" value="endowment" required>
+                                        <span>☂️ Endowment Plan</span>
                                     </label>
                                     <label class="radio-option">
-                                        <input type="radio" name="serviceCategory" value="building-maintenance">
-                                        <span>🔧 Building Maintenance</span>
+                                        <input type="radio" name="planType" value="money-back">
+                                        <span>💰 Money Back Policy</span>
                                     </label>
                                     <label class="radio-option">
-                                        <input type="radio" name="serviceCategory" value="structural-repair">
-                                        <span>🏢 Structural Repair</span>
+                                        <input type="radio" name="planType" value="term-assurance">
+                                        <span>🛡️ Term Assurance</span>
                                     </label>
                                     <label class="radio-option">
-                                        <input type="radio" name="serviceCategory" value="renovation">
-                                        <span>🏠 Renovation/Remodeling</span>
+                                        <input type="radio" name="planType" value="pension">
+                                        <span>👴 Pension/Annuity</span>
                                     </label>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Step 2: Project Location -->
+                        <!-- Step 2: Policy Details -->
                         <div class="form-step" data-step="2">
-                            <h3>Project Location</h3>
+                            <h3>Coverage Details</h3>
                             <div class="form-group">
-                                <label>Project Address *</label>
-                                <textarea name="address" required placeholder="Plot No., Street, Area"></textarea>
+                                <label>Annual Income *</label>
+                                <select name="income" required>
+                                    <option value="">Select Range</option>
+                                    <option value="under-5">Under ₹5 Lakhs</option>
+                                    <option value="5-10">₹5-10 Lakhs</option>
+                                    <option value="10-15">₹10-15 Lakhs</option>
+                                    <option value="above-15">Above ₹15 Lakhs</option>
+                                </select>
                             </div>
                             <div class="two-column">
                                 <div class="form-group">
-                                    <label>City *</label>
-                                    <input type="text" name="city" required placeholder="Chennai">
+                                    <label>Age *</label>
+                                    <input type="number" name="age" required placeholder="30">
                                 </div>
                                 <div class="form-group">
-                                    <label>PIN Code *</label>
-                                    <input type="text" name="pincode" required placeholder="600001" pattern="[0-9]{6}">
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Step 3: Project Details -->
-                        <div class="form-step" data-step="3">
-                            <h3>Project Details</h3>
-                            <div class="form-group">
-                                <label>Project Type *</label>
-                                <div class="radio-group">
-                                    <label class="radio-option">
-                                        <input type="radio" name="projectType" value="residential" required>
-                                        <span>🏠 Residential</span>
-                                    </label>
-                                    <label class="radio-option">
-                                        <input type="radio" name="projectType" value="commercial">
-                                        <span>🏢 Commercial</span>
-                                    </label>
-                                    <label class="radio-option">
-                                        <input type="radio" name="projectType" value="industrial">
-                                        <span>🏭 Industrial</span>
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="two-column">
-                                <div class="form-group">
-                                    <label>Plot/Built-up Area (Sq.ft) *</label>
-                                    <input type="number" name="area" required placeholder="2500">
-                                </div>
-                                <div class="form-group">
-                                    <label>Budget Range</label>
-                                    <select name="budget">
-                                        <option value="">Select Budget</option>
-                                        <option value="under-5">Under ₹5 Lakhs</option>
-                                        <option value="5-10">₹5-10 Lakhs</option>
-                                        <option value="10-25">₹10-25 Lakhs</option>
-                                        <option value="25-50">₹25-50 Lakhs</option>
-                                        <option value="above-50">Above ₹50 Lakhs</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Step 4: Timeline -->
-                        <div class="form-step" data-step="4">
-                            <h3>Timeline & Info</h3>
-                            <div class="two-column">
-                                <div class="form-group">
-                                    <label>Expected Start Date *</label>
-                                    <input type="date" name="startDate" required>
-                                </div>
-                                <div class="form-group">
-                                    <label>Project Urgency *</label>
-                                    <select name="urgency" required>
-                                        <option value="">Select</option>
-                                        <option value="immediate">Immediate</option>
-                                        <option value="1-month">Within 1 month</option>
-                                        <option value="planning">Just Planning</option>
-                                    </select>
+                                    <label>Desired Sum Assured</label>
+                                    <input type="text" name="sumAssured" placeholder="e.g. ₹50 Lakhs">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label>Additional Comments</label>
-                                <textarea name="comments" placeholder="Describe your requirements..."
+                                <textarea name="comments" placeholder="Describe your specific requirements..."
                                     rows="3"></textarea>
                             </div>
                         </div>
@@ -986,9 +894,9 @@
                 <div class="success-screen" id="successScreen">
                     <div class="success-icon">✓</div>
                     <h2>Thank You! 🎉</h2>
-                    <p>Your project inquiry has been submitted successfully.</p>
+                    <p>Your insurance inquiry has been submitted successfully.</p>
                     <p class="reference-number">Reference: <span id="referenceNumber"></span></p>
-                    <p>We'll contact you within 24 hours.</p>
+                    <p>Our advisor will contact you shortly.</p>
                     <button class="btn-primary" onclick="closeEnquiryModal()" style="margin-top: 20px;">Close</button>
                 </div>
             </div>
@@ -1029,24 +937,30 @@
             document.body.style.overflow = '';
         }
 
-        // Close on outside click
+        // Close when clicking outside
         modal.addEventListener('click', (e) => {
-            if (e.target === modal) closeEnquiryModal();
+            if (e.target === modal) {
+                closeEnquiryModal();
+            }
         });
 
-        // Form Logic
+        // Form Steps Logic
         let currentStep = 1;
-        const totalSteps = 4;
+        const totalSteps = 2; // Reduced to 2 steps for insurance
+        const form = document.getElementById('projectForm');
+        const progressBar = document.getElementById('progressBar');
+
+        updateProgress();
 
         function updateProgress() {
-            const progress = (currentStep / totalSteps) * 100;
-            document.getElementById('progressBar').style.width = progress + '%';
+            const progress = ((currentStep - 1) / (totalSteps - 1)) * 100;
+            progressBar.style.width = `${progress}%`;
         }
 
         function changeStep(direction) {
             const currentStepEl = document.querySelector(`.form-step[data-step="${currentStep}"]`);
 
-            // Validation
+            // Validate current step
             if (direction === 1) {
                 const inputs = currentStepEl.querySelectorAll('input[required], textarea[required], select[required]');
                 let valid = true;
@@ -1096,7 +1010,7 @@
                 .then(response => response.json())
                 .then(data => {
                     // Success
-                    document.getElementById('referenceNumber').textContent = 'UB-' + Math.floor(100000 + Math.random() * 900000);
+                    document.getElementById('referenceNumber').textContent = 'UI-' + Math.floor(100000 + Math.random() * 900000);
                     document.querySelector('.form-body').style.display = 'none';
                     document.getElementById('successScreen').style.display = 'block';
                 })

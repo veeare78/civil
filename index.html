@@ -72,12 +72,16 @@
         }
 
         .engineering {
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+            background: url('assets/engineering-bg.jpg');
+            background-size: cover;
+            background-position: center;
             border-right: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .insurance {
-            background: linear-gradient(135deg, #020617 0%, #0f172a 50%, #1e293b 100%);
+            background: url('assets/protection-bg.jpg');
+            background-size: cover;
+            background-position: center;
         }
 
         /* Hover Effects */
@@ -150,14 +154,15 @@
             transform: scale(1.1);
         }
 
-        .icon-svg {
+        .icon-img {
             width: 100%;
             height: 100%;
+            object-fit: contain;
             filter: drop-shadow(0 10px 40px rgba(251, 191, 36, 0.3));
             transition: all 0.6s ease;
         }
 
-        .insurance .icon-svg {
+        .insurance .icon-img {
             filter: drop-shadow(0 10px 40px rgba(251, 191, 36, 0.5));
         }
 
@@ -442,33 +447,16 @@
         <div class="divider"></div>
 
         <div class="split-world">
-            <div class="world-half engineering" onclick="navigateTo('builders.html')">
+            <div class="world-half engineering" onclick="navigateTo('builders.html', 'UNIVERSE BUILDERS')">
                 <div class="grid-overlay"></div>
                 <div class="world-content">
-                    <div class="icon-container">
-                        <div class="rotating-ring"></div>
-                        <svg class="icon-svg" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M100 20L180 60V140L100 180L20 140V60L100 20Z" stroke="#fbbf24" stroke-width="3"
-                                fill="rgba(251, 191, 36, 0.1)" />
-                            <path d="M100 20V180M20 60L180 140M180 60L20 140" stroke="#fbbf24" stroke-width="2"
-                                opacity="0.5" />
-                            <circle cx="100" cy="100" r="25" stroke="#fbbf24" stroke-width="3"
-                                fill="rgba(251, 191, 36, 0.2)" />
-                            <path d="M50 100H150M100 50V150" stroke="#fbbf24" stroke-width="2" />
-                        </svg>
-                    </div>
-                    <h2 class="world-title">Engineering</h2>
-                    <p class="world-subtitle">Precision • Innovation • Quality</p>
-                    <ul class="features">
-                        <li class="feature-item">Structural Design</li>
-                        <li class="feature-item">Project Management</li>
-                        <li class="feature-item">Custom Construction</li>
-                    </ul>
-                    <button class="cta-button">Enter Engineering</button>
+                    <div class="logos-wrapper" style="display: none;"></div>
+                    <button class="cta-button" data-target="UNIVERSE BUILDERS">ENTER</button>
                 </div>
             </div>
 
-            <div class="world-half insurance" onclick="navigateTo('builders.html#services')">
+            <div class="world-half insurance"
+                onclick="navigateTo('insurance.html', 'UNIVERSE INSURANCE INVESTMENT SERVICES')">
                 <div class="shield-overlay">
                     <svg width="100%" height="100%" style="position: absolute; opacity: 0.15;">
                         <defs>
@@ -482,24 +470,7 @@
                     </svg>
                 </div>
                 <div class="world-content">
-                    <div class="icon-container">
-                        <div class="rotating-ring"></div>
-                        <svg class="icon-svg" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M100 20C100 20 160 40 160 80C160 120 130 160 100 180C70 160 40 120 40 80C40 40 100 20 100 20Z"
-                                stroke="#fbbf24" stroke-width="3" fill="rgba(251, 191, 36, 0.15)" />
-                            <path d="M75 95L90 110L125 75" stroke="#fbbf24" stroke-width="4" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                        </svg>
-                    </div>
-                    <h2 class="world-title">Protection</h2>
-                    <p class="world-subtitle">Security • Maintenance • Loans</p>
-                    <ul class="features">
-                        <li class="feature-item">1-Year Free Maintenance</li>
-                        <li class="feature-item">Easy Loan Assistance</li>
-                        <li class="feature-item">Building Safety Check</li>
-                    </ul>
-                    <button class="cta-button">Enter Protection</button>
+                    <button class="cta-button" data-target="UNIVERSE INSURANCE INVESTMENT SERVICES">ENTER</button>
                 </div>
             </div>
         </div>
@@ -524,8 +495,12 @@
             particlesContainer.appendChild(particle);
         }
 
-        function navigateTo(url) {
+        function navigateTo(url, targetName) {
             const transitionScreen = document.getElementById('transitionScreen');
+            const transitionText = transitionScreen.querySelector('.transition-text');
+            if (targetName) {
+                transitionText.textContent = `Connecting to ${targetName}...`;
+            }
             transitionScreen.classList.add('active');
             setTimeout(() => {
                 window.location.href = url;
@@ -535,8 +510,11 @@
         document.querySelectorAll('.cta-button').forEach(button => {
             button.addEventListener('click', (e) => {
                 e.stopPropagation();
-                const path = button.textContent.includes('Engineering') ? 'builders.html' : 'builders.html#services';
-                navigateTo(path);
+                // Check if button is in the engineering section (left side)
+                const isEngineering = button.closest('.engineering');
+                const path = isEngineering ? 'builders.html' : 'insurance.html';
+                const target = button.getAttribute('data-target');
+                navigateTo(path, target);
             });
         });
 
