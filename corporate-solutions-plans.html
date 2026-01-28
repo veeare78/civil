@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corporate & Group Insurance Solutions - UNIVERSE INSURANCE</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Hind+Madurai:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --primary: #0f172a;
+            --accent: #fbbf24;
+            --accent-hover: #f59e0b;
+            --text-main: #1e293b;
+            --text-light: #64748b;
+            --white: #ffffff;
+            --bg-soft: #f8fafc;
+            --glass: rgba(255, 255, 255, 0.8);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--bg-soft);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* Header logic */
+        header {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            padding: 1rem 5%;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            line-height: 1.2;
+        }
+
+        .logo-images {
+            display: flex;
+            gap: 10px;
+        }
+
+        .logo-img {
+            height: 50px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo span {
+            color: var(--accent-hover);
+            display: block;
+            font-size: 0.8rem;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        nav a:hover {
+            color: var(--accent-hover);
+        }
+
+        /* Mega Menu Styles */
+        .has-mega-menu {
+            position: relative;
+        }
+
+        .mega-menu {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%) translateY(20px);
+            background: white;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            display: flex;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 2000;
+            min-width: 600px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .has-mega-menu:hover .mega-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .mega-column {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .mega-header {
+            background-color: var(--primary);
+            color: white;
+            padding: 12px 20px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-align: left;
+            border-bottom: 2px solid var(--accent);
+        }
+
+        .mega-items {
+            background-color: var(--white);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .mega-item {
+            color: var(--text-main);
+            text-decoration: none;
+            padding: 12px 20px;
+            font-weight: 500;
+            transition: all 0.2s;
+            border-bottom: 1px solid #f1f5f9;
+            font-size: 0.95rem;
+            text-align: left;
+        }
+
+        .mega-item:last-child {
+            border-bottom: none;
+        }
+
+        .mega-item:hover {
+            background-color: var(--bg-soft);
+            color: var(--accent-hover);
+            padding-left: 25px;
+        }
+
+        /* Page Hero */
+        .page-hero {
+            background: linear-gradient(135deg, var(--primary) 0%, #1e293b 100%);
+            color: var(--white);
+            padding: 4rem 5%;
+            text-align: center;
+        }
+
+        .page-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .page-hero p {
+            font-size: 1.1rem;
+            color: #cbd5e1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Product Grid */
+        .plans-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 5%;
+        }
+
+        .plans-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .plan-card {
+            background: var(--white);
+            border-radius: 16px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #e2e8f0;
+        }
+
+        .plan-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .plan-header {
+            padding: 1.5rem;
+            background: #f8fafc;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .plan-header h2 {
+            font-size: 1.35rem;
+            color: var(--primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .plan-code {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            font-weight: 600;
+        }
+
+        .plan-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .plan-desc {
+            font-size: 0.95rem;
+            color: var(--text-main);
+            margin-bottom: 1.5rem;
+        }
+
+        .plan-features {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            background: #f1f5f9;
+            padding: 0.75rem;
+            border-radius: 8px;
+        }
+
+        .feature-item {
+            flex: 1;
+        }
+
+        .feature-label {
+            font-size: 0.75rem;
+            color: var(--text-light);
+            text-transform: uppercase;
+            font-weight: 700;
+            display: block;
+        }
+
+        .feature-value {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .benefits-title {
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .benefits-list {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .benefits-list li {
+            font-size: 0.9rem;
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 8px;
+            color: var(--text-main);
+        }
+
+        .benefits-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #10b981;
+            font-weight: 900;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tag {
+            background: #e2e8f0;
+            color: #475569;
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .plan-footer {
+            padding: 1.5rem;
+            border-top: 1px solid #e2e8f0;
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn-buy {
+            flex: 1;
+            background: var(--accent);
+            color: var(--primary);
+            text-align: center;
+            padding: 0.75rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: background 0.2s;
+        }
+
+        .btn-buy:hover {
+            background: var(--accent-hover);
+        }
+
+        .btn-details {
+            flex: 1;
+            border: 1px solid #cbd5e1;
+            color: var(--text-main);
+            text-align: center;
+            padding: 0.75rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .btn-details:hover {
+            background: #f1f5f9;
+        }
+
+        footer {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            color: var(--primary);
+            padding: 2rem 5%;
+            text-align: center;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(15, 23, 42, 0.05);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        .btn-enquire-nav {
+            background: var(--accent);
+            color: var(--primary);
+            border: none;
+            padding: 0.5rem 1.2rem;
+            border-radius: 6px;
+            font-weight: 700;
+            cursor: pointer;
+            font-family: inherit;
+            transition: all 0.3s ease;
+        }
+
+        @media (max-width: 768px) {
+            .plans-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a href="index.html" style="text-decoration: none; display: flex; align-items: center; gap: 15px;">
+                <div class="logo">
+                    <div class="logo-images">
+                        <img src="assets/header-logo-1.png" class="logo-img" alt="Logo">
+                        <img src="assets/header-logo-2.png" class="logo-img" alt="Logo">
+                    </div>
+                    <div class="logo-text">
+                        UNIVERSE INSURANCE
+                        <span>& INVESTMENT SERVICES</span>
+                    </div>
+                </div>
+            </a>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li class="has-mega-menu">
+                    <a href="insurance.html#services">Plans <i class="fas fa-chevron-down"
+                            style="font-size: 0.7rem;"></i></a>
+                    <div class="mega-menu">
+                        <div class="mega-column">
+                            <div class="mega-header">Individual Life Insurance Plans</div>
+                            <div class="mega-items">
+                                <a href="online-plans.html" class="mega-item">Online Plans</a>
+                                <a href="saving-plans.html" class="mega-item">Saving Plans</a>
+                                <a href="protection-plans.html" class="mega-item">Protection Plans</a>
+                                <a href="wealth-creation-plans.html" class="mega-item">Wealth Creation with
+                                    Insurance</a>
+                                <a href="retirement-plans.html" class="mega-item">Retirement Plans</a>
+                                <a href="child-plans.html" class="mega-item">Child Plans</a>
+                                <a href="money-back-plans.html" class="mega-item">Money Back Income Plans</a>
+                            </div>
+                        </div>
+                        <div class="mega-column">
+                            <div class="mega-header">Group Insurance Plans</div>
+                            <div class="mega-items">
+                                <a href="corporate-solutions-plans.html" class="mega-item">Corporate Solutions Plans</a>
+                                <a href="group-loan-protection-plans.html" class="mega-item">Group Loan Protection
+                                    Plans</a>
+                                <a href="group-micro-plans.html" class="mega-item">Group Micro Insurance Plans</a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li><a href="insurance.html#contact">Contact</a></li>
+                <li><button class="btn-enquire-nav" onclick="location.href='insurance.html'">Get Quote</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="page-hero">
+        <h1>Corporate & Group Insurance Solutions</h1>
+        <p>Comprehensive insurance and fund-based solutions for formal and informal groups. Empowering employers and
+            employees with tailored benefits and government-backed schemes.</p>
+    </section>
+
+    <main class="plans-container">
+        <div class="plans-grid">
+            <!-- Kalyan ULIP Plus -->
+            <div class="plan-card">
+                <div class="plan-header">
+                    <h2>SBI Life – Kalyan ULIP Plus</h2>
+                    <span class="plan-code">111L079V03</span>
+                </div>
+                <div class="plan-content">
+                    <p class="plan-desc">A fund-based plan for Employer-Employee groups. A one-stop solution combining
+                        gratuity benefits with market-linked returns.</p>
+                    <div class="plan-features">
+                        <div class="feature-item">
+                            <span class="feature-label">Platform</span>
+                            <span class="feature-value">Fund Based</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-label">Returns</span>
+                            <span class="feature-value">Market-Linked</span>
+                        </div>
+                    </div>
+                    <div class="benefits-title"><i class="fas fa-star"></i> Key Benefits</div>
+                    <ul class="benefits-list">
+                        <li>Market-linked corpus growth</li>
+                        <li>Loyalty additions for group value</li>
+                        <li>Comprehensive gratuity solution</li>
+                    </ul>
+                    <div class="tags">
+                        <span class="tag">ULIP</span>
+                        <span class="tag">Group Plans</span>
+                        <span class="tag">Employer-Employee</span>
+                    </div>
+                </div>
+                <div class="plan-footer">
+                    <a href="#" class="btn-buy">Continue Your Application</a>
+                </div>
+            </div>
+
+            <!-- PMJJBY -->
+            <div class="plan-card">
+                <div class="plan-header">
+                    <h2>SBI Life - Pradhan Mantri Jeevan Jyoti Bima Yojana</h2>
+                    <span class="plan-code">111G102V01</span>
+                </div>
+                <div class="plan-content">
+                    <p class="plan-desc">Secure your family's future with the Government of India's life insurance
+                        scheme. Life cover of ₹2 lakh at a nominal price.</p>
+                    <div class="plan-features">
+                        <div class="feature-item">
+                            <span class="feature-label">Life Cover</span>
+                            <span class="feature-value">₹2,00,000</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-label">Cost</span>
+                            <span class="feature-value">Nominal Price</span>
+                        </div>
+                    </div>
+                    <div class="benefits-title"><i class="fas fa-star"></i> Key Benefits</div>
+                    <ul class="benefits-list">
+                        <li>Essential life cover provision</li>
+                        <li>Easy and swift enrollment process</li>
+                        <li>Government backed security</li>
+                    </ul>
+                    <div class="tags">
+                        <span class="tag">Term Plan</span>
+                        <span class="tag">Government Scheme</span>
+                        <span class="tag">Group Protection</span>
+                    </div>
+                </div>
+                <div class="plan-footer">
+                    <a href="#" class="btn-buy">Continue Your Application</a>
+                </div>
+            </div>
+
+            <!-- CapAssure Gold -->
+            <div class="plan-card">
+                <div class="plan-header">
+                    <h2>SBI Life - CapAssure Gold</h2>
+                    <span class="plan-code">111N091V03</span>
+                </div>
+                <div class="plan-content">
+                    <p class="plan-desc">Fulfills the needs of Employers/Trustees/PSUs for funding retirement benefit
+                        schemes like gratuity and superannuation.</p>
+                    <div class="plan-features">
+                        <div class="feature-item">
+                            <span class="feature-label">Suitability</span>
+                            <span class="feature-value">Employers & PSUs</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-label">Purpose</span>
+                            <span class="feature-value">Retirement Funding</span>
+                        </div>
+                    </div>
+                    <div class="benefits-title"><i class="fas fa-star"></i> Key Benefits</div>
+                    <ul class="benefits-list">
+                        <li>Gratuity & Leave Encashment solutions</li>
+                        <li>Superannuation Scheme management</li>
+                        <li>Customized employee services</li>
+                    </ul>
+                    <div class="tags">
+                        <span class="tag">Employee Benefits</span>
+                        <span class="tag">Gratuity</span>
+                        <span class="tag">PSU Solutions</span>
+                    </div>
+                </div>
+                <div class="plan-footer">
+                    <a href="#" class="btn-buy">Continue Your Application</a>
+                </div>
+            </div>
+
+            <!-- Sampoorn Suraksha -->
+            <div class="plan-card">
+                <div class="plan-header">
+                    <h2>SBI Life – Sampoorn Suraksha</h2>
+                    <span class="plan-code">111N040V04</span>
+                </div>
+                <div class="plan-content">
+                    <p class="plan-desc">A yearly renewable group term insurance plan for formal and informal groups.
+                        Comprehensive and fully customizable benefits.</p>
+                    <div class="plan-features">
+                        <div class="feature-item">
+                            <span class="feature-label">Type</span>
+                            <span class="feature-value">Renewable Term</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-label">Groups</span>
+                            <span class="feature-value">Formal/Informal</span>
+                        </div>
+                    </div>
+                    <div class="benefits-title"><i class="fas fa-star"></i> Key Benefits</div>
+                    <ul class="benefits-list">
+                        <li>Comprehensive insurance coverage</li>
+                        <li>High degree of customization</li>
+                        <li>Affordable group protection</li>
+                    </ul>
+                    <div class="tags">
+                        <span class="tag">Group Term Insurance</span>
+                        <span class="tag">Customizable</span>
+                        <span class="tag">Protection</span>
+                    </div>
+                </div>
+                <div class="plan-footer">
+                    <a href="#" class="btn-buy">Continue Your Application</a>
+                </div>
+            </div>
+
+            <!-- Swarna Jeevan Plus -->
+            <div class="plan-card">
+                <div class="plan-header">
+                    <h2>SBI Life - Swarna Jeevan Plus</h2>
+                    <span class="plan-code">111N131V11</span>
+                </div>
+                <div class="plan-content">
+                    <p class="plan-desc">Designed for Corporate Clients to provide for their annuity liability. Offers
+                        immediate and deferred annuity options for groups.</p>
+                    <div class="plan-features">
+                        <div class="feature-item">
+                            <span class="feature-label">Clients</span>
+                            <span class="feature-value">Corporate</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-label">Annuity</span>
+                            <span class="feature-value">Single & Joint</span>
+                        </div>
+                    </div>
+                    <div class="benefits-title"><i class="fas fa-star"></i> Key Benefits</div>
+                    <ul class="benefits-list">
+                        <li>Group Pension liability management</li>
+                        <li>Immediate & Deferred options</li>
+                        <li>Corporate specialized annuity</li>
+                    </ul>
+                    <div class="tags">
+                        <span class="tag">Group Annuity</span>
+                        <span class="tag">Corporate Pension</span>
+                        <span class="tag">Liability Solution</span>
+                    </div>
+                </div>
+                <div class="plan-footer">
+                    <a href="#" class="btn-buy">Continue Your Application</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2026 UNIVERSE INSURANCE. All rights reserved.</p>
+            <div class="social-links">
+                <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

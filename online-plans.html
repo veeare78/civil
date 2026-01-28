@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Insurance Plans - UNIVERSE INSURANCE</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Hind+Madurai:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --primary: #0f172a;
+            --accent: #fbbf24;
+            --accent-hover: #f59e0b;
+            --text-main: #1e293b;
+            --text-light: #64748b;
+            --white: #ffffff;
+            --bg-soft: #f8fafc;
+            --glass: rgba(255, 255, 255, 0.8);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--bg-soft);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* Header logic from insurance.html */
+        header {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            padding: 1rem 5%;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            line-height: 1.2;
+        }
+
+        .logo-images {
+            display: flex;
+            gap: 10px;
+        }
+
+        .logo-img {
+            height: 50px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo span {
+            color: var(--accent-hover);
+            display: block;
+            font-size: 0.8rem;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        nav a:hover {
+            color: var(--accent-hover);
+        }
+
+        /* Mega Menu Styles */
+        .has-mega-menu {
+            position: relative;
+        }
+
+        .mega-menu {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%) translateY(20px);
+            background: white;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            display: flex;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 2000;
+            min-width: 600px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .has-mega-menu:hover .mega-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .mega-column {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .mega-header {
+            background-color: var(--primary);
+            color: white;
+            padding: 12px 20px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-align: left;
+            border-bottom: 2px solid var(--accent);
+        }
+
+        .mega-items {
+            background-color: var(--white);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .mega-item {
+            color: var(--text-main);
+            text-decoration: none;
+            padding: 12px 20px;
+            font-weight: 500;
+            transition: all 0.2s;
+            border-bottom: 1px solid #f1f5f9;
+            font-size: 0.95rem;
+            text-align: left;
+        }
+
+        .mega-item:last-child {
+            border-bottom: none;
+        }
+
+        .mega-item:hover {
+            background-color: var(--bg-soft);
+            color: var(--accent-hover);
+            padding-left: 25px;
+        }
+
+        /* Hero section refined */
+        .page-hero {
+            background: linear-gradient(135deg, var(--primary) 0%, #1e293b 100%);
+            color: var(--white);
+            padding: 4rem 5%;
+            text-align: center;
+        }
+
+        .page-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .page-hero p {
+            font-size: 1.1rem;
+            color: #cbd5e1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Product Grid */
+        .plans-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 5%;
+        }
+
+        .plans-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .plan-card {
+            background: var(--white);
+            border-radius: 16px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #e2e8f0;
+        }
+
+        .plan-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .plan-header {
+            padding: 1.5rem;
+            background: #f8fafc;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .plan-header h2 {
+            font-size: 1.35rem;
+            color: var(--primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .plan-code {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            font-weight: 600;
+        }
+
+        .plan-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .plan-desc {
+            font-size: 0.95rem;
+            color: var(--text-main);
+            margin-bottom: 1.5rem;
+        }
+
+        .plan-features {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            background: #f1f5f9;
+            padding: 0.75rem;
+            border-radius: 8px;
+        }
+
+        .feature-item {
+            flex: 1;
+        }
+
+        .feature-label {
+            font-size: 0.75rem;
+            color: var(--text-light);
+            text-transform: uppercase;
+            font-weight: 700;
+            display: block;
+        }
+
+        .feature-value {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .benefits-title {
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .benefits-list {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .benefits-list li {
+            font-size: 0.9rem;
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 8px;
+            color: var(--text-main);
+        }
+
+        .benefits-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #10b981;
+            font-weight: 900;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tag {
+            background: #e2e8f0;
+            color: #475569;
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .plan-footer {
+            padding: 1.5rem;
+            border-top: 1px solid #e2e8f0;
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn-buy {
+            flex: 1;
+            background: var(--accent);
+            color: var(--primary);
+            text-align: center;
+            padding: 0.75rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: background 0.2s;
+        }
+
+        .btn-buy:hover {
+            background: var(--accent-hover);
+        }
+
+        .btn-details {
+            flex: 1;
+            border: 1px solid #cbd5e1;
+            color: var(--text-main);
+            text-align: center;
+            padding: 0.75rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .btn-details:hover {
+            background: #f1f5f9;
+        }
+
+        footer {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            color: var(--primary);
+            padding: 2rem 5%;
+            text-align: center;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(15, 23, 42, 0.05);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        .btn-enquire-nav {
+            background: var(--accent);
+            color: var(--primary);
+            border: none;
+            padding: 0.5rem 1.2rem;
+            border-radius: 6px;
+            font-weight: 700;
+            cursor: pointer;
+            font-family: inherit;
+            transition: all 0.3s ease;
+        }
+
+        @media (max-width: 768px) {
+            .plans-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a href="index.html" style="text-decoration: none; display: flex; align-items: center; gap: 15px;">
+                <div class="logo">
+                    <div class="logo-images">
+                        <img src="assets/header-logo-1.png" class="logo-img" alt="Logo">
+                        <img src="assets/header-logo-2.png" class="logo-img" alt="Logo">
+                    </div>
+                    <div class="logo-text">
+                        UNIVERSE INSURANCE
+                        <span>& INVESTMENT SERVICES</span>
+                    </div>
+                </div>
+            </a>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li class="has-mega-menu">
+                    <a href="insurance.html#services">Plans <i class="fas fa-chevron-down"
+                            style="font-size: 0.7rem;"></i></a>
+                    <div class="mega-menu">
+                        <div class="mega-column">
+                            <div class="mega-header">Individual Life Insurance Plans</div>
+                            <div class="mega-items">
+                                <a href="online-plans.html" class="mega-item">Online Plans</a>
+                                <a href="saving-plans.html" class="mega-item">Saving Plans</a>
+                                <a href="protection-plans.html" class="mega-item">Protection Plans</a>
+                                <a href="wealth-creation-plans.html" class="mega-item">Wealth Creation with
+                                    Insurance</a>
+                                <a href="retirement-plans.html" class="mega-item">Retirement Plans</a>
+                                <a href="child-plans.html" class="mega-item">Child Plans</a>
+                                <a href="money-back-plans.html" class="mega-item">Money Back Income Plans</a>
+                            </div>
+                        </div>
+                        <div class="mega-column">
+                            <div class="mega-header">Group Insurance Plans</div>
+                            <div class="mega-items">
+                                <a href="corporate-solutions-plans.html" class="mega-item">Corporate Solutions Plans</a>
+                                <a href="group-loan-protection-plans.html" class="mega-item">Group Loan Protection
+                                    Plans</a>
+                                <a href="group-micro-plans.html" class="mega-item">Group Micro Insurance Plans</a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li><a href="insurance.html#contact">Contact</a></li>
+                <li><button class="btn-enquire-nav" onclick="location.href='insurance.html'">Get Quote</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="page-hero">
+        <h1>Online Insurance Plans</h1>
+        <p>Explore and purchase your ideal online insurance plan. Get secure coverage with ease, offering flexibility
+            and convenience in managing your insurance needs.</p>
+    </section>
+
+    <main class="plans-container">
+        <div class="plans-grid">
+            <!-- Smart Shield Plus -->
+            <div class="plan-card">
+                <div class="plan-header">
+                    <h2>SBI Life – Smart Shield Plus</h2>
+                    <span class="plan-code">111N150V01</span>
+                </div>
+                <div class="plan-content">
+                    <p class="plan-desc">An Individual, Non-linked, Non-Participating, Life Insurance, Pure Risk Product
+                        with benefits crafted for your growing needs to create a secured life.</p>
+                    <div class="plan-features">
+                        <div class="feature-item">
+                            <span class="feature-label">Premium Range</span>
+                            <span class="feature-value">₹2,500 onwards</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-label">Entry Age</span>
+                            <span class="feature-value">18 years</span>
+                        </div>
+                    </div>
+                    <div class="benefits-title"><i class="fas fa-star"></i> Key Benefits</div>
+                    <ul class="benefits-list">
+                        <li>Three Plan Options</li>
+                        <li>Enhanced protection with optional rider</li>
+                        <li>Better Half Benefit Option</li>
+                    </ul>
+                    <div class="tags">
+                        <span class="tag">Protection Plans</span>
+                        <span class="tag">Term plan</span>
+                        <span class="tag">Online Plan</span>
+                    </div>
+                </div>
+                <div class="plan-footer">
+                    <a href="#" class="btn-buy">Buy Now</a>
+                    <a href="#" class="btn-details">Learn More</a>
+                </div>
+            </div>
+
+            <!-- Smart Shield Premier -->
+            <div class="plan-card">
+                <div class="plan-header">
+                    <h2>SBI Life - Smart Shield Premier</h2>
+                    <span class="plan-code">111N145V01</span>
+                </div>
+                <div class="plan-content">
+                    <p class="plan-desc">An exclusive term plan offering higher coverage with flexible premium payment
+                        options to secure your loved one’s financial future.</p>
+                    <div class="plan-features">
+                        <div class="feature-item">
+                            <span class="feature-label">Premium Range</span>
+                            <span class="feature-value">₹9,500 onwards</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-label">Entry Age</span>
+                            <span class="feature-value">18 years</span>
+                        </div>
+                    </div>
+                    <div class="benefits-title"><i class="fas fa-star"></i> Key Benefits</div>
+                    <ul class="benefits-list">
+                        <li>Financial protection at affordable cost</li>
+                        <li>Level Cover & Increasing Cover options</li>
+                        <li>Optional Accident Benefit Rider</li>
+                    </ul>
+                    <div class="tags">
+                        <span class="tag">Protection Plans</span>
+                        <span class="tag">Term plan</span>
+                    </div>
+                </div>
+                <div class="plan-footer">
+                    <a href="#" class="btn-buy">Buy Now</a>
+                    <a href="#" class="btn-details">Learn More</a>
+                </div>
+            </div>
+
+            <!-- Smart Scholar Plus -->
+            <div class="plan-card">
+                <div class="plan-header">
+                    <h2>SBI Life - Smart Scholar Plus</h2>
+                    <span class="plan-code">111L144V01</span>
+                </div>
+                <div class="plan-content">
+                    <p class="plan-desc">Fulfills your child’s dreams proactively by creating a corpus for a secured
+                        financial future through market linked returns.</p>
+                    <div class="plan-features">
+                        <div class="feature-item">
+                            <span class="feature-label">Premium Range</span>
+                            <span class="feature-value">₹50,000 onwards</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-label">Entry Age</span>
+                            <span class="feature-value">Child: 0y, Proposer: 18y</span>
+                        </div>
+                    </div>
+                    <div class="benefits-title"><i class="fas fa-star"></i> Key Benefits</div>
+                    <ul class="benefits-list">
+                        <li>10 market-linked fund options</li>
+                        <li>Dual benefit: Lumpsum & Premium waiver</li>
+                        <li>Loyalty additions to boost funds</li>
+                    </ul>
+                    <div class="tags">
+                        <span class="tag">Child Insurance</span>
+                        <span class="tag">ULIP</span>
+                        <span class="tag">Security</span>
+                    </div>
+                </div>
+                <div class="plan-footer">
+                    <a href="#" class="btn-buy">Buy Now</a>
+                    <a href="#" class="btn-details">Learn More</a>
+                </div>
+            </div>
+
+            <!-- Retire Smart Plus -->
+            <div class="plan-card">
+                <div class="plan-header">
+                    <h2>SBI Life – Retire Smart Plus</h2>
+                    <span class="plan-code">111L135V02</span>
+                </div>
+                <div class="plan-content">
+                    <p class="plan-desc">Enables you to build the corpus you need to live comfortably in the second
+                        innings of your life with financial stability.</p>
+                    <div class="plan-features">
+                        <div class="feature-item">
+                            <span class="feature-label">Premium Range</span>
+                            <span class="feature-value">₹30,000 onwards</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-label">Entry Age</span>
+                            <span class="feature-value">20 years</span>
+                        </div>
+                    </div>
+                    <div class="benefits-title"><i class="fas fa-star"></i> Key Benefits</div>
+                    <ul class="benefits-list">
+                        <li>07 varied fund options for returns</li>
+                        <li>Flexibility for changing needs</li>
+                        <li>Loyalty & Terminal Additions</li>
+                    </ul>
+                    <div class="tags">
+                        <span class="tag">Retirement Plans</span>
+                        <span class="tag">Pension</span>
+                        <span class="tag">ULIP</span>
+                    </div>
+                </div>
+                <div class="plan-footer">
+                    <a href="#" class="btn-buy">Buy Now</a>
+                    <a href="#" class="btn-details">Learn More</a>
+                </div>
+            </div>
+
+            <!-- eWealth Plus -->
+            <div class="plan-card">
+                <div class="plan-header">
+                    <h2>SBI Life - eWealth Plus</h2>
+                    <span class="plan-code">111L147V01</span>
+                </div>
+                <div class="plan-content">
+                    <p class="plan-desc">Avail twin benefits of market linked returns on your invested money and the
+                        security of life cover with a simplified 3-step process.</p>
+                    <div class="plan-features">
+                        <div class="feature-item">
+                            <span class="feature-label">Premium Range</span>
+                            <span class="feature-value">₹36,000 onwards</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-label">Entry Age</span>
+                            <span class="feature-value">5 years</span>
+                        </div>
+                    </div>
+                    <div class="benefits-title"><i class="fas fa-star"></i> Key Benefits</div>
+                    <ul class="benefits-list">
+                        <li>Easy 3-step online buying process</li>
+                        <li>Two investment strategies</li>
+                        <li>Automatic Asset Allocation</li>
+                    </ul>
+                    <div class="tags">
+                        <span class="tag">ULIP Plan</span>
+                        <span class="tag">Wealth Creation</span>
+                        <span class="tag">Online</span>
+                    </div>
+                </div>
+                <div class="plan-footer">
+                    <a href="#" class="btn-buy">Buy Now</a>
+                    <a href="#" class="btn-details">Learn More</a>
+                </div>
+            </div>
+
+            <!-- Smart Elite Plus -->
+            <div class="plan-card">
+                <div class="plan-header">
+                    <h2>SBI Life – Smart Elite Plus</h2>
+                    <span class="plan-code">111L146V01</span>
+                </div>
+                <div class="plan-content">
+                    <p class="plan-desc">Maximizes your savings through market-linked returns and features that empower
+                        you with greater control over your portfolio.</p>
+                    <div class="plan-features">
+                        <div class="feature-item">
+                            <span class="feature-label">Premium Range</span>
+                            <span class="feature-value">₹2,50,000 onwards</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-label">Entry Age</span>
+                            <span class="feature-value">18 Years</span>
+                        </div>
+                    </div>
+                    <div class="benefits-title"><i class="fas fa-star"></i> Key Benefits</div>
+                    <ul class="benefits-list">
+                        <li>Wide range of specialized funds</li>
+                        <li>2 flexible plan options</li>
+                        <li>Life cover with high potential returns</li>
+                    </ul>
+                    <div class="tags">
+                        <span class="tag">ULIP</span>
+                        <span class="tag">Life Cover</span>
+                        <span class="tag">Elite</span>
+                    </div>
+                </div>
+                <div class="plan-footer">
+                    <a href="#" class="btn-buy">Buy Now</a>
+                    <a href="#" class="btn-details">Learn More</a>
+                </div>
+            </div>
+
+            <!-- Smart Platina Supreme -->
+            <div class="plan-card">
+                <div class="plan-header">
+                    <h2>SBI Life - Smart Platina Supreme</h2>
+                    <span class="plan-code">111N171V03</span>
+                </div>
+                <div class="plan-content">
+                    <p class="plan-desc">Protect your future financially with regular guaranteed benefits and the
+                        confidence to fulfill promises to loved ones.</p>
+                    <div class="plan-features">
+                        <div class="feature-item">
+                            <span class="feature-label">Premium Range</span>
+                            <span class="feature-value">₹50,000 onwards</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-label">Entry Age</span>
+                            <span class="feature-value">3 Years</span>
+                        </div>
+                    </div>
+                    <div class="benefits-title"><i class="fas fa-star"></i> Key Benefits</div>
+                    <ul class="benefits-list">
+                        <li>Regular Guaranteed income during payout</li>
+                        <li>Flexibility to suit life goals</li>
+                        <li>Long Term wealth protection</li>
+                    </ul>
+                    <div class="tags">
+                        <span class="tag">Savings Plan</span>
+                        <span class="tag">Guaranteed Returns</span>
+                    </div>
+                </div>
+                <div class="plan-footer">
+                    <a href="#" class="btn-buy">Buy Now</a>
+                    <a href="#" class="btn-details">Learn More</a>
+                </div>
+            </div>
+
+            <!-- Smart Platina Plus -->
+            <div class="plan-card">
+                <div class="plan-header">
+                    <h2>SBI Life - Smart Platina Plus</h2>
+                    <span class="plan-code">111N133V06</span>
+                </div>
+                <div class="plan-content">
+                    <p class="plan-desc">Provides a regular guaranteed long term income so that you can go ahead and
+                        live every moment of life with extra happiness.</p>
+                    <div class="plan-features">
+                        <div class="feature-item">
+                            <span class="feature-label">Premium Range</span>
+                            <span class="feature-value">₹50,000 onwards</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-label">Entry Age</span>
+                            <span class="feature-value">3 Years</span>
+                        </div>
+                    </div>
+                    <div class="benefits-title"><i class="fas fa-star"></i> Key Benefits</div>
+                    <ul class="benefits-list">
+                        <li>Enjoy lifelong guaranteed income</li>
+                        <li>Flexibility to choose payout terms</li>
+                        <li>Financial security for extra achievements</li>
+                    </ul>
+                    <div class="tags">
+                        <span class="tag">Guaranteed Income</span>
+                        <span class="tag">Savings</span>
+                    </div>
+                </div>
+                <div class="plan-footer">
+                    <a href="#" class="btn-buy">Buy Now</a>
+                    <a href="#" class="btn-details">Learn More</a>
+                </div>
+            </div>
+
+            <!-- Smart Annuity Plus -->
+            <div class="plan-card">
+                <div class="plan-header">
+                    <h2>SBI Life - Smart Annuity Plus</h2>
+                    <span class="plan-code">111N134V10</span>
+                </div>
+                <div class="plan-content">
+                    <p class="plan-desc">A stress-free retirement plan with regular guaranteed income options including
+                        immediate and deferred lifetime annuity.</p>
+                    <div class="plan-features">
+                        <div class="feature-item">
+                            <span class="feature-label">Annuity Type</span>
+                            <span class="feature-value">Immediate/Deferred</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-label">Flexibility</span>
+                            <span class="feature-value">5 Annuity Options</span>
+                        </div>
+                    </div>
+                    <div class="benefits-title"><i class="fas fa-star"></i> Key Benefits</div>
+                    <ul class="benefits-list">
+                        <li>Guaranteed Lifelong Regular Income</li>
+                        <li>Joint life options for spouse security</li>
+                        <li>Incentive for high purchase price</li>
+                    </ul>
+                    <div class="tags">
+                        <span class="tag">Retirement</span>
+                        <span class="tag">Pension</span>
+                        <span class="tag">NPS</span>
+                    </div>
+                </div>
+                <div class="plan-footer">
+                    <a href="#" class="btn-buy">Buy Now</a>
+                    <a href="#" class="btn-details">Learn More</a>
+                </div>
+            </div>
+
+            <!-- Smart Fortune Builder -->
+            <div class="plan-card">
+                <div class="plan-header">
+                    <h2>SBI Life - Smart Fortune Builder</h2>
+                    <span class="plan-code">111L142V01</span>
+                </div>
+                <div class="plan-content">
+                    <p class="plan-desc">Avail the benefit of life coverage and enhanced wealth creation opportunity
+                        through market-linked returns and guaranteed additions.</p>
+                    <div class="plan-features">
+                        <div class="feature-item">
+                            <span class="feature-label">Premium Range</span>
+                            <span class="feature-value">₹40k to ₹2.5L</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-label">Entry Age</span>
+                            <span class="feature-value">2 Years</span>
+                        </div>
+                    </div>
+                    <div class="benefits-title"><i class="fas fa-star"></i> Key Benefits</div>
+                    <ul class="benefits-list">
+                        <li>Guaranteed additions during term</li>
+                        <li>Enhanced investment fund options</li>
+                        <li>Life cover with market growth</li>
+                    </ul>
+                    <div class="tags">
+                        <span class="tag">Unit Linked Plan</span>
+                        <span class="tag">Wealth Creation</span>
+                    </div>
+                </div>
+                <div class="plan-footer">
+                    <a href="#" class="btn-buy">Buy Now</a>
+                    <a href="#" class="btn-details">Learn More</a>
+                </div>
+            </div>
+
+            <!-- Smart Swadhan Supreme -->
+            <div class="plan-card">
+                <div class="plan-header">
+                    <h2>SBI Life – Smart Swadhan Supreme</h2>
+                    <span class="plan-code">111N140V02</span>
+                </div>
+                <div class="plan-content">
+                    <p class="plan-desc">Provides life cover at affordable premiums and returns total premium paid at
+                        the end of the policy term upon survival.</p>
+                    <div class="plan-features">
+                        <div class="feature-item">
+                            <span class="feature-label">Premium Range</span>
+                            <span class="feature-value">₹6,000 onwards</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-label">Entry Age</span>
+                            <span class="feature-value">18 Years</span>
+                        </div>
+                    </div>
+                    <div class="benefits-title"><i class="fas fa-star"></i> Key Benefits</div>
+                    <ul class="benefits-list">
+                        <li>Protection at reasonable cost</li>
+                        <li>Refund of total premiums paid</li>
+                        <li>Family financial security</li>
+                    </ul>
+                    <div class="tags">
+                        <span class="tag">Protection</span>
+                        <span class="tag">Security</span>
+                        <span class="tag">ROP</span>
+                    </div>
+                </div>
+                <div class="plan-footer">
+                    <a href="#" class="btn-buy">Buy Now</a>
+                    <a href="#" class="btn-details">Learn More</a>
+                </div>
+            </div>
+
+            <!-- Saral Jeevan Bima -->
+            <div class="plan-card">
+                <div class="plan-header">
+                    <h2>SBI Life - Saral Jeevan Bima</h2>
+                    <span class="plan-code">111N128V02</span>
+                </div>
+                <div class="plan-content">
+                    <p class="plan-desc">A standard term plan ensuring that your family is financially protected in case
+                        of unforeseen circumstances at an affordable cost.</p>
+                    <div class="plan-features">
+                        <div class="feature-item">
+                            <span class="feature-label">Premium Range</span>
+                            <span class="feature-value">₹1,415 to ₹1.01L</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-label">Entry Age</span>
+                            <span class="feature-value">18 years</span>
+                        </div>
+                    </div>
+                    <div class="benefits-title"><i class="fas fa-star"></i> Key Benefits</div>
+                    <ul class="benefits-list">
+                        <li>Standardized simple terms</li>
+                        <li>Affordable, pure protection cover</li>
+                        <li>Multiple premium payment modes</li>
+                    </ul>
+                    <div class="tags">
+                        <span class="tag">Protection Plan</span>
+                        <span class="tag">Non-Linked</span>
+                        <span class="tag">Term Plan</span>
+                    </div>
+                </div>
+                <div class="plan-footer">
+                    <a href="#" class="btn-buy">Buy Now</a>
+                    <a href="#" class="btn-details">Learn More</a>
+                </div>
+            </div>
+
+            <!-- Smart Bachat Plus -->
+            <div class="plan-card">
+                <div class="plan-header">
+                    <h2>SBI Life - Smart Bachat Plus</h2>
+                    <span class="plan-code">111N170V01</span>
+                </div>
+                <div class="plan-content">
+                    <p class="plan-desc">An Individual savings product with two benefit options: Life or Life Plus with
+                        in-built accidental disability benefits.</p>
+                    <div class="plan-features">
+                        <div class="feature-item">
+                            <span class="feature-label">Premium Range</span>
+                            <span class="feature-value">₹12,000 onwards</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-label">Entry Age</span>
+                            <span class="feature-value">3 years</span>
+                        </div>
+                    </div>
+                    <div class="benefits-title"><i class="fas fa-star"></i> Key Benefits</div>
+                    <ul class="benefits-list">
+                        <li>Limited premium payment terms</li>
+                        <li>Two flexible plan options</li>
+                        <li>In-built accidental benefit</li>
+                    </ul>
+                    <div class="tags">
+                        <span class="tag">Endowment</span>
+                        <span class="tag">Savings Plan</span>
+                        <span class="tag">Participating</span>
+                    </div>
+                </div>
+                <div class="plan-footer">
+                    <a href="#" class="btn-buy">Buy Now</a>
+                    <a href="#" class="btn-details">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2026 UNIVERSE INSURANCE. All rights reserved.</p>
+            <div class="social-links">
+                <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

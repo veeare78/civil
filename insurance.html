@@ -132,6 +132,95 @@
             color: var(--accent-hover);
         }
 
+        /* Mega Menu Styles */
+        .has-mega-menu {
+            position: relative;
+        }
+
+        .mega-menu {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%) translateY(20px);
+            background: white;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            display: flex;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 2000;
+            min-width: 600px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .has-mega-menu:hover .mega-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .mega-column {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .mega-header {
+            background-color: var(--primary);
+            color: white;
+            padding: 12px 20px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-align: left;
+            border-bottom: 2px solid var(--accent);
+        }
+
+        .mega-items {
+            background-color: var(--white);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .mega-item {
+            color: var(--text-main);
+            text-decoration: none;
+            padding: 12px 20px;
+            font-weight: 500;
+            transition: all 0.2s;
+            border-bottom: 1px solid #f1f5f9;
+            font-size: 0.95rem;
+            text-align: left;
+        }
+
+        .mega-item:last-child {
+            border-bottom: none;
+        }
+
+        .mega-item:hover {
+            background-color: var(--bg-soft);
+            color: var(--accent-hover);
+            padding-left: 25px;
+        }
+
+        @media (max-width: 900px) {
+            .mega-menu {
+                min-width: 100%;
+                flex-direction: column;
+                position: static;
+                transform: none;
+                display: none;
+                opacity: 1;
+                visibility: visible;
+                box-shadow: none;
+            }
+
+            .has-mega-menu.active .mega-menu {
+                display: flex;
+            }
+        }
+
         /* Hero Section */
         .hero {
             position: relative;
@@ -692,7 +781,33 @@
             </button>
             <ul>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="#services">Plans</a></li>
+                <li class="has-mega-menu">
+                    <a href="#services">Plans <i class="fas fa-chevron-down" style="font-size: 0.7rem;"></i></a>
+                    <div class="mega-menu">
+                        <div class="mega-column">
+                            <div class="mega-header">Individual Life Insurance Plans</div>
+                            <div class="mega-items">
+                                <a href="online-plans.html" class="mega-item">Online Plans</a>
+                                <a href="saving-plans.html" class="mega-item">Saving Plans</a>
+                                <a href="protection-plans.html" class="mega-item">Protection Plans</a>
+                                <a href="wealth-creation-plans.html" class="mega-item">Wealth Creation with
+                                    Insurance</a>
+                                <a href="retirement-plans.html" class="mega-item">Retirement Plans</a>
+                                <a href="child-plans.html" class="mega-item">Child Plans</a>
+                                <a href="money-back-plans.html" class="mega-item">Money Back Income Plans</a>
+                            </div>
+                        </div>
+                        <div class="mega-column">
+                            <div class="mega-header">Group Insurance Plans</div>
+                            <div class="mega-items">
+                                <a href="corporate-solutions-plans.html" class="mega-item">Corporate Solutions Plans</a>
+                                <a href="group-loan-protection-plans.html" class="mega-item">Group Loan Protection
+                                    Plans</a>
+                                <a href="group-micro-plans.html" class="mega-item">Group Micro Insurance Plans</a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
                 <li><a href="#contact">Contact</a></li>
                 <li><button class="btn-enquire" onclick="openEnquiryModal()">Get Quote</button></li>
             </ul>
@@ -704,40 +819,70 @@
             <div class="hero-ofer-badge">Secure Your Family's Future</div>
             <!-- Removed Life Insurance Corporation of India -->
             <p>Trust. Transparency. Togetherness. Comprehensive Life Insurance and Investment Solutions.</p>
-            <a href="#contact" class="btn">View Plans</a>
+            <a href="#categories" class="btn">Explore Plan Categories</a>
         </div>
     </section>
 
-    <section class="services" id="services">
+    <section class="services" id="categories">
         <div class="container">
             <div class="section-header">
-                <h2>Our Insurance Products</h2>
-                <p>Plans tailored to your life stage and financial goals</p>
+                <h2>Explore Insurance Categories</h2>
+                <p>Select a category to view detailed SBI Life insurance plans tailored to your needs.</p>
             </div>
             <div class="service-grid">
-                <div class="service-card">
-                    <span class="icon">☂️</span>
-                    <h3>Endowment Plans</h3>
-                    <p>A combination of protection and savings. Get a lump sum amount at maturity or on earlier death.
-                    </p>
-                </div>
-                <div class="service-card">
+                <a href="online-plans.html" class="service-card" style="text-decoration: none; color: inherit;">
+                    <span class="icon">🌐</span>
+                    <h3>Online Plans</h3>
+                    <p>Convenient and direct digital insurance solutions for modern protection needs.</p>
+                </a>
+                <a href="saving-plans.html" class="service-card" style="text-decoration: none; color: inherit;">
                     <span class="icon">💰</span>
-                    <h3>Money Back Plans</h3>
-                    <p>Periodic payments of partial survival benefits during the term of the policy, plus maturity
-                        benefits.</p>
-                </div>
-                <div class="service-card">
+                    <h3>Saving Plans</h3>
+                    <p>Build your wealth systematically while ensuring life cover for your family.</p>
+                </a>
+                <a href="protection-plans.html" class="service-card" style="text-decoration: none; color: inherit;">
                     <span class="icon">🛡️</span>
-                    <h3>Term Assurance</h3>
-                    <p>Pure protection plans offering high life cover at low premiums to secure your family's financial
-                        future.</p>
-                </div>
-                <div class="service-card">
+                    <h3>Protection Plans</h3>
+                    <p>Pure term insurance offering high coverage at affordable premiums for security.</p>
+                </a>
+                <a href="wealth-creation-plans.html" class="service-card"
+                    style="text-decoration: none; color: inherit;">
+                    <span class="icon">📈</span>
+                    <h3>Wealth Creation</h3>
+                    <p>Unit Linked Insurance Plans (ULIPs) that combine market growth with safety.</p>
+                </a>
+                <a href="retirement-plans.html" class="service-card" style="text-decoration: none; color: inherit;">
                     <span class="icon">👴</span>
-                    <h3>Pension Plans</h3>
-                    <p>Plan for a comfortable retirement with our range of immediate and deferred annuity plans.</p>
-                </div>
+                    <h3>Retirement Plans</h3>
+                    <p>Ensure a steady income and financial independence during your golden years.</p>
+                </a>
+                <a href="child-plans.html" class="service-card" style="text-decoration: none; color: inherit;">
+                    <span class="icon">🎓</span>
+                    <h3>Child Plans</h3>
+                    <p>Secure your child's future education and marriage dreams with targeted savings.</p>
+                </a>
+                <a href="money-back-plans.html" class="service-card" style="text-decoration: none; color: inherit;">
+                    <span class="icon">🔄</span>
+                    <h3>Money Back Plans</h3>
+                    <p>Regular payouts throughout the policy term to meet recurring financial needs.</p>
+                </a>
+                <a href="corporate-solutions-plans.html" class="service-card"
+                    style="text-decoration: none; color: inherit;">
+                    <span class="icon">🏢</span>
+                    <h3>Corporate Solutions</h3>
+                    <p>Enterprise-grade life cover, gratuity, and superannuation solutions for groups.</p>
+                </a>
+                <a href="group-loan-protection-plans.html" class="service-card"
+                    style="text-decoration: none; color: inherit;">
+                    <span class="icon">🏠</span>
+                    <h3>Group Loan Protection</h3>
+                    <p>Protect your family from loan liabilities with credit-linked insurance solutions.</p>
+                </a>
+                <a href="group-micro-plans.html" class="service-card" style="text-decoration: none; color: inherit;">
+                    <span class="icon">🤝</span>
+                    <h3>Group Micro Insurance</h3>
+                    <p>Affordable and inclusive protection plans for informal groups and micro-segments.</p>
+                </a>
             </div>
         </div>
     </section>
@@ -831,22 +976,47 @@
                             </div>
                             <div class="form-group">
                                 <label>Plan Type *</label>
-                                <div class="radio-group">
+                                <div class="radio-group"
+                                    style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
                                     <label class="radio-option">
-                                        <input type="radio" name="planType" value="endowment" required>
-                                        <span>☂️ Endowment Plan</span>
+                                        <input type="radio" name="planType" value="online" required>
+                                        <span>🌐 Online Plan</span>
+                                    </label>
+                                    <label class="radio-option">
+                                        <input type="radio" name="planType" value="saving">
+                                        <span>💰 Saving Plan</span>
+                                    </label>
+                                    <label class="radio-option">
+                                        <input type="radio" name="planType" value="protection">
+                                        <span>🛡️ Protection Plan</span>
+                                    </label>
+                                    <label class="radio-option">
+                                        <input type="radio" name="planType" value="wealth">
+                                        <span>📈 Wealth Creation</span>
+                                    </label>
+                                    <label class="radio-option">
+                                        <input type="radio" name="planType" value="retirement">
+                                        <span>👴 Retirement Plan</span>
+                                    </label>
+                                    <label class="radio-option">
+                                        <input type="radio" name="planType" value="child">
+                                        <span>🎓 Child Plan</span>
                                     </label>
                                     <label class="radio-option">
                                         <input type="radio" name="planType" value="money-back">
-                                        <span>💰 Money Back Policy</span>
+                                        <span>🔄 Money Back Plan</span>
                                     </label>
                                     <label class="radio-option">
-                                        <input type="radio" name="planType" value="term-assurance">
-                                        <span>🛡️ Term Assurance</span>
+                                        <input type="radio" name="planType" value="corporate">
+                                        <span>🏢 Corporate Solution</span>
                                     </label>
                                     <label class="radio-option">
-                                        <input type="radio" name="planType" value="pension">
-                                        <span>👴 Pension/Annuity</span>
+                                        <input type="radio" name="planType" value="loan-protection">
+                                        <span>🏠 Loan Protection</span>
+                                    </label>
+                                    <label class="radio-option">
+                                        <input type="radio" name="planType" value="micro">
+                                        <span>🤝 Micro Insurance</span>
                                     </label>
                                 </div>
                             </div>
@@ -914,9 +1084,16 @@
 
         // Close menu when a link is clicked
         document.querySelectorAll('nav a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileToggle.classList.remove('active');
-                navUl.classList.remove('active');
+            link.addEventListener('click', (e) => {
+                const parentLi = link.parentElement;
+                if (window.innerWidth <= 900 && parentLi.classList.contains('has-mega-menu')) {
+                    e.preventDefault();
+                    parentLi.classList.toggle('active');
+                } else {
+                    mobileToggle.classList.remove('active');
+                    navUl.classList.remove('active');
+                    document.querySelectorAll('.has-mega-menu').forEach(item => item.classList.remove('active'));
+                }
             });
         });
 
