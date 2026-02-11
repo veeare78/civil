@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ta">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery | Universe Builders</title>
+    <meta name="description" content="Project Gallery - Universe Builders, Rajapalayam">
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://universebuilders.in/gallery.html">
+    <meta property="og:title" content="Gallery | Universe Builders">
+    <meta property="og:image" content="assets/gallery-1.jpg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Hind+Madurai:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --primary: #0f172a;
+            --accent: #fbbf24;
+            --accent-hover: #f59e0b;
+            --text-main: #1e293b;
+            --text-light: #64748b;
+            --white: #ffffff;
+            --bg-soft: #f8fafc;
+            --glass: rgba(255, 255, 255, 0.8);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', 'Hind Madurai', sans-serif;
+            background-color: var(--bg-soft);
+            color: var(--text-main);
+        }
+
+        /* Reusing Navigation Styles */
+        header {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            padding: 1rem 5%;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-transform: uppercase;
+        }
+
+        .logo-images {
+            display: flex;
+            gap: 10px;
+        }
+
+        .logo-img {
+            height: 50px;
+            width: auto;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo span {
+            color: var(--accent-hover);
+            font-size: 0.8rem;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--accent-hover);
+        }
+
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .mobile-toggle {
+                display: block;
+            }
+
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+        }
+
+        /* Gallery Grid */
+        .gallery-page {
+            padding: 4rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .gallery-page h1 {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--primary);
+            font-size: 1.5rem;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .gallery-item {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Footer */
+        footer {
+            background: #020617;
+            padding: 2rem 5%;
+            text-align: center;
+            color: var(--text-light);
+            margin-top: 4rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <a href="index.html" style="text-decoration: none;">
+                <div class="logo">
+                    <div class="logo-images">
+                        <img src="assets/header-logo-1.png" class="logo-img" alt="Logo">
+                        <img src="assets/header-logo-2.png" class="logo-img" alt="Logo">
+                    </div>
+                    <div class="logo-text">
+                        UNIVERSE BUILDERS
+                        <span>& BUILDING MAINTENANCE</span>
+                    </div>
+                </div>
+            </a>
+            <button class="mobile-toggle" onclick="document.querySelector('nav ul').classList.toggle('active')">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="builders.html#services">Services</a></li>
+                <li><a href="gallery.html" style="color: var(--accent);">Gallery</a></li>
+                <li><a href="builders.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="gallery-page">
+        <h1>Project Location - Thiruvalluvar Nagar, Rajapalaiyam - 626117</h1>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="assets/gallery-1.jpg" alt="Construction Project - Thiruvalluvar Nagar">
+            </div>
+        </div>
+
+        <h2 style="text-align: center; margin: 3rem 0 2rem; color: var(--primary);">Project Location - Virudhunagar</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="assets/gallery-virudhunagar-1.jpg" alt="Construction Project - Virudhunagar">
+            </div>
+            <div class="gallery-item">
+                <img src="assets/gallery-virudhunagar-2.jpg" alt="Construction Project - Virudhunagar">
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 UNIVERSE BUILDERS. All rights reserved.</p>
+    </footer>
+
+</body>
+
+</html>
